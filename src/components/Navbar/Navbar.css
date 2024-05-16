@@ -13,6 +13,18 @@
     font-size: 20px;
 }
 
+.nav-menu li {
+    display: flex;
+    align-items: center; /* Asegura que los items se alineen horizontalmente */
+    gap: 10px; /* Ajusta el espacio entre el texto y el subrayado */
+}
+
+.nav-underline {
+    width: 20px; /* Ajusta el ancho del subrayado según sea necesario */
+    height: 3px;
+    background-color: #B415FF; /* O usa la imagen si prefieres */
+}
+
 .nav-connect{
     padding: 20px 40px;
     border-radius: 50px;
@@ -32,6 +44,10 @@
 }
 
 .nav-mob-close{
+    display: none;
+}
+
+.nav-mob-open{
     display: none;
 }
 

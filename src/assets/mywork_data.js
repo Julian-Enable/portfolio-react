@@ -7,35 +7,41 @@ import project6_img from '../assets/project_6.svg'
 
 const mywork_data = [
     {
-        w_no:1,
-        w_name:"Web design",
-        w_img:project1_img
+        w_no: 1,
+        w_name: "Tienda PC",
+        w_img: project1_img,
+        w_link: "https://github.com/Julian-Enable/Web-Pc"
     },
     {
-        w_no:2,
-        w_name:"Web design",
-        w_img:project2_img
+        w_no: 2,
+        w_name: "Cracker Pass PDF",
+        w_img: project2_img,
+        w_link: "https://github.com/Julian-Enable/CrackerPassPDF"
     },
     {
-        w_no:3,
-        w_name:"Web design",
-        w_img:project3_img
+        w_no: 3,
+        w_name: "Pomodoro Estudio",
+        w_img: project3_img,
+        w_link: "https://github.com/Julian-Enable/Pomoro-Estudio"
     },
     {
-        w_no:4,
-        w_name:"Web design",
-        w_img:project4_img
+        w_no: 4,
+        w_name: "KeyLogger",
+        w_img: project4_img,
+        w_link: "https://github.com/Julian-Enable/KeyLogMerchan"
     },
     {
-        w_no:5,
-        w_name:"Web design",
-        w_img:project5_img
+        w_no: 5,
+        w_name: "Creador Contraseñas",
+        w_img: project5_img,
+        w_link: "https://github.com/Julian-Enable/passcreate.github.io"
     },
     {
-        w_no:6,
-        w_name:"Web design",
-        w_img:project6_img
+        w_no: 6,
+        w_name: "Wordle Game",
+        w_img: project6_img,
+        w_link: "https://github.com/Julian-Enable/Wordle-Game"
     },
 ]
- 
+
 export default mywork_data;
