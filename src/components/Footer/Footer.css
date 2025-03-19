@@ -72,31 +72,104 @@
     transition: 0.3s;
 }
 
-@media(max-width: 768px) {
+/* Responsividad para pantallas medianas (tablets) */
+@media(max-width: 1024px) {
     .footer {
-        margin: 50px 20px; /* Reduce el margen en pantallas pequeñas */
-    }
-    .footer-top {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .footer-top-right {
-        flex-direction: column;
-        align-items: stretch;
+        margin: 40px 30px;
+        /* Reduce márgenes para tablets */
         gap: 20px;
     }
-    .footer-bottom {
-        flex-direction: column-reverse;
-        margin-bottom: 50px;
+
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
     }
+
+    .footer-top-left p {
+        font-size: 18px;
+        /* Reduce el tamaño de fuente */
+    }
+
     .footer-email-input {
-        padding: 15px 30px; /* Ajusta el padding para pantallas pequeñas */
-        padding-right: 20px; /* Ajusta el padding-right para evitar desbordamiento */
-        width: 90%;
+        padding: 15px 20px;
+        /* Ajusta el padding */
+        padding-right: 20px;
     }
+
     .footer-subscribe {
-        padding: 15px 30px; /* Ajusta el padding para pantallas pequeñas */
-        width: 89%; /* Asegura que el botón se ajuste al contenedor */
+        font-size: 18px;
+        /* Reduce el tamaño del botón */
+        padding: 15px 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        font-size: 16px;
+        /* Reduce el tamaño de fuente */
+    }
+
+    .footer-bottom-right {
+        gap: 30px;
+        /* Reduce el espacio entre enlaces */
+    }
+}
+
+/* Responsividad para pantallas pequeñas (móviles) */
+@media(max-width: 480px) {
+    .footer {
+        margin: 30px 15px;
+        /* Márgenes más pequeños para móviles */
+        gap: 15px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-top-left p {
+        font-size: 16px;
+        /* Reduce aún más el tamaño de fuente */
         text-align: center;
+        /* Centra el texto */
+    }
+
+    .footer-top-right {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-email-input {
+        padding: 10px 15px;
+        /* Ajusta el padding */
+        padding-right: 10px;
+        width: 100%;
+        /* Asegura que ocupe todo el ancho */
+    }
+
+    .footer-subscribe {
+        font-size: 16px;
+        /* Reduce el tamaño del botón */
+        padding: 10px 20px;
+        width: 100%;
+        /* Asegura que el botón ocupe todo el ancho */
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        /* Reduce el tamaño de fuente */
+    }
+
+    .footer-bottom-right {
+        flex-direction: column;
+        gap: 10px;
+        /* Reduce el espacio entre enlaces */
     }
 }

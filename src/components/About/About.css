@@ -1,4 +1,4 @@
-.about{
+.about {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,35 +7,35 @@
     margin: 80px 170px;
 }
 
-.about-title{
+.about-title {
     position: relative;
 }
 
-.about-title h1{
+.about-title h1 {
     padding: 0px 30px;
     font-size: 80px;
     font-weight: 600;
 }
 
-.about-title img{
+.about-title img {
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: -1;
 }
 
-.about-sections{
+.about-sections {
     display: flex;
     gap: 80px;
 }
 
-.about-right{
+.about-right {
     display: flex;
     flex-direction: column;
     gap: 80px;
 }
 
-.about-para{
+.about-para {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -43,26 +43,26 @@
     font-weight: 500;
 }
 
-.about-skills{
+.about-skills {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.about-skill{
+.about-skill {
     display: flex;
     gap: 50px;
     align-items: center;
     transition: 0.3s;
 }
 
-.about-skill p{
+.about-skill p {
     min-width: 150px;
     font-size: 24px;
     font-weight: 500;
 }
 
-.about-skill hr{
+.about-skill hr {
     outline: none;
     border: none;
     width: 50%;
@@ -71,14 +71,14 @@
     background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
 }
 
-.about-archivements{
+.about-archivements {
     display: flex;
     width: 100%;
     justify-content: space-around;
     margin-bottom: 80px;
 }
 
-.about-archivement{
+.about-archivement {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +86,7 @@
     transition: 0.5s;
 }
 
-.about-archivement h1{
+.about-archivement h1 {
     font-size: 60px;
     font-weight: 700;
     background: linear-gradient(264deg, #DF8908 50.41%, #B415FF 90.25%);
@@ -95,67 +95,103 @@
     -webkit-text-fill-color: transparent;
 }
 
-.about-archivement p{
+.about-archivement p {
     font-size: 22px;
     font-weight: 500;
 }
 
-.about-skill:hover{
+.about-skill:hover {
     transform: scale(1.05);
     transition: 0.3s;
 }
 
-.about-archivement:hover{
+.about-archivement:hover {
     transform: scale(1.12);
     transition: 0.5s;
 }
 
-@media(max-width:768px){
-    .about{
-        gap: 80px;
-        margin: 50px 70px;
-        align-items: start;
+/* Responsividad para pantallas medianas (tablets) */
+@media(max-width: 1024px) {
+    .about {
+        gap: 60px;
+        margin: 40px 50px;
     }
-    .about-title h1{
-        font-size: 50px;
-        padding: 0;
+
+    .about-title h1 {
+        font-size: 60px;
     }
-    .about-title img{
-        width: 130px;
-        right: -20px;
+
+    .about-sections {
+        gap: 40px;
     }
-    .about-sections{
-        flex-direction: column;
+
+    .about-skill p {
+        font-size: 22px;
     }
-    .about-left{
-        display: none;
-    }
-    .about-para{
-        font-size: 18px;
-        line-height: 32px;
-    }
-    .about-skill{
-        gap: 20px;
-        align-items: center;
-    }
-    .about-skill p{
-        font-size: 20px;
-    }
-    .about-skill hr{
+
+    .about-skill hr {
         height: 6px;
     }
-    .about-archivements{
-        justify-content: space-between;
+
+    .about-archivement h1 {
+        font-size: 40px;
     }
-    .about-archivement{
+
+    .about-archivement p {
+        font-size: 18px;
+    }
+}
+
+/* Responsividad para pantallas pequeñas (móviles) */
+@media(max-width: 480px) {
+    .about {
+        gap: 40px;
+        margin: 20px 20px;
+        align-items: center;
+    }
+
+    .about-title h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .about-title img {
+        width: 100px;
+        right: 0;
+    }
+
+    .about-sections {
+        gap: 20px;
+    }
+
+    .about-para {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .about-skill {
         gap: 10px;
     }
-    .about-archivement h1{
-        font-size: 34px;
-        font-weight: 700;
-    }
-    .about-archivement p{
-        text-align: center;
+
+    .about-skill p {
         font-size: 16px;
+    }
+
+    .about-skill hr {
+        height: 4px;
+    }
+
+    .about-archivements {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-archivement h1 {
+        font-size: 28px;
+    }
+
+    .about-archivement p {
+        font-size: 14px;
+        text-align: center;
     }
 }
