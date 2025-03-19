@@ -87,11 +87,11 @@
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 820px) {
     .navbar {
         margin: 20px 30px;
         width: calc(100% - 60px);
-        /* Ajusta el ancho para móviles */
+        /* Ajusta el ancho para iPads */
     }
 
     .nav-connect {
