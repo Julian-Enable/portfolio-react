@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.svg';
 import underline from '../../assets/nav_underline.svg';
@@ -8,55 +8,85 @@ import menu_close from '../../assets/menu_close.svg';
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
-  const menuRef = useRef();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const openMenu = () => {
-    menuRef.current.style.right = "0";
+    setIsMenuOpen(true);
   }
 
   const closeMenu = () => {
-    menuRef.current.style.right = "-350px";
+    setIsMenuOpen(false);
   }
+
+  useEffect(() => {
+    const sectionIds = ["home", "about", "services", "work", "contact"];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setMenu(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className='navbar'>
       <img src={logo} alt="Logo" />
-      <img src={menu_open} alt="Open Menu" className='nav-mob-open' onClick={openMenu} />
-      <ul ref={menuRef} className="nav-menu">
-        <img src={menu_close} onClick={closeMenu} alt="Close Menu" className="nav-mob-close" />
-        <li>
-          <AnchorLink className='anchor-link' href='#home'>
-            <p onClick={() => setMenu("home")}>Home</p>
-          </AnchorLink>
-          {menu === "home" ? <img src={underline} alt="Underline" /> : null}
+      <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
+        <img src={menu_open} alt="Abrir menú" />
+      </button>
+      {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true"></div>}
+      <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'open' : ''}`} role="menubar">
+        <li role="none">
+          <button aria-label="Cerrar menú" className="nav-mob-close" onClick={closeMenu}>
+            <img src={menu_close} alt="Cerrar menú" />
+          </button>
         </li>
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#about'>
-            <p onClick={() => setMenu("about")}>About</p>
+        <li role="none">
+          <AnchorLink className='anchor-link' href='#home' onClick={() => { setMenu("home"); closeMenu(); }} role="menuitem" aria-current={menu === 'home' ? 'page' : undefined}>
+            Inicio
           </AnchorLink>
-          {menu === "about" ? <img src={underline} alt="Underline" /> : null}
+          {menu === "home" ? <img src={underline} alt="Subrayado" /> : null}
         </li>
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#services'>
-            <p onClick={() => setMenu("services")}>Services</p>
+        <li role="none">
+          <AnchorLink className='anchor-link' offset={50} href='#about' onClick={() => { setMenu("about"); closeMenu(); }} role="menuitem" aria-current={menu === 'about' ? 'page' : undefined}>
+            Sobre mí
           </AnchorLink>
-          {menu === "services" ? <img src={underline} alt="Underline" /> : null}
+          {menu === "about" ? <img src={underline} alt="Subrayado" /> : null}
         </li>
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#work'>
-            <p onClick={() => setMenu("work")}>Portfolio</p>
+        <li role="none">
+          <AnchorLink className='anchor-link' offset={50} href='#services' onClick={() => { setMenu("services"); closeMenu(); }} role="menuitem" aria-current={menu === 'services' ? 'page' : undefined}>
+            Servicios
           </AnchorLink>
-          {menu === "work" ? <img src={underline} alt="Underline" /> : null}
+          {menu === "services" ? <img src={underline} alt="Subrayado" /> : null}
         </li>
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#contact'>
-            <p onClick={() => setMenu("contact")}>Contact</p>
+        <li role="none">
+          <AnchorLink className='anchor-link' offset={50} href='#work' onClick={() => { setMenu("work"); closeMenu(); }} role="menuitem" aria-current={menu === 'work' ? 'page' : undefined}>
+            Portafolio
           </AnchorLink>
-          {menu === "contact" ? <img src={underline} alt="Underline" /> : null}
+          {menu === "work" ? <img src={underline} alt="Subrayado" /> : null}
+        </li>
+        <li role="none">
+          <AnchorLink className='anchor-link' offset={50} href='#contact' onClick={() => { setMenu("contact"); closeMenu(); }} role="menuitem" aria-current={menu === 'contact' ? 'page' : undefined}>
+            Contacto
+          </AnchorLink>
+          {menu === "contact" ? <img src={underline} alt="Subrayado" /> : null}
         </li>
       </ul>
       <div className="nav-connect">
-        <AnchorLink className='anchor-link' offset={50} href='#contact'>Contact Me</AnchorLink>
+        <AnchorLink className='anchor-link' offset={50} href='#contact'>Contáctame</AnchorLink>
       </div>
     </div>
   )

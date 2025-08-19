@@ -38,9 +38,10 @@
 
 .services-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
     margin-bottom: 80px;
+    width: 100%;
 }
 
 .services-format h3 {
@@ -72,18 +73,19 @@
 }
 
 .services-format:hover {
-    border: 2px solid #ff00ff;
-    background-image: linear-gradient(45deg, #3f0028, #582300);
-    transform: scale(1.05);
-    transition: 0.4s;
+    border: 2px solid rgba(180, 21, 255, 0.65);
+    background: linear-gradient(120deg, rgba(180, 21, 255, 0.10) 0%, rgba(201, 75, 245, 0.08) 35%, rgba(223, 137, 8, 0.10) 100%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transform: scale(1.03);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.3s ease, box-shadow 0.2s ease;
 }
 
 /* Responsividad para pantallas medianas (tablets) */
 @media(max-width: 1024px) {
     .services {
         align-items: start;
-        gap: 70px;
-        margin: 40px 50px;
+        gap: 50px;
+        margin: 60px 50px;
     }
 
     .services-title h1 {
@@ -116,8 +118,7 @@
     }
 
     .services-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        gap: 24px;
     }
 }
 
@@ -125,8 +126,8 @@
 @media(max-width: 480px) {
     .services {
         align-items: center;
-        gap: 50px;
-        margin: 20px 20px;
+        gap: 40px;
+        margin: 30px 20px;
     }
 
     .services-title h1 {
@@ -159,7 +160,6 @@
     }
 
     .services-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 }

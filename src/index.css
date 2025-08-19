@@ -3,9 +3,20 @@
   padding: 0;
 }
 
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
 body{
   height: 100vh;
   background: #161513;
   color: white;
   font-family: 'outfit';
+}
+
+:root{
+  --brand-grad: linear-gradient(120deg, #B415FF 0%, #C94BF5 35%, #DF8908 100%);
+  --brand-grad-soft: linear-gradient(120deg, #B415FF 0%, #C94BF5 35%, #DF8908 100%);
+  --btn-shadow: 0 4px 12px rgba(180, 21, 255, 0.22);
+  --btn-border-glass: rgba(255, 255, 255, 0.18);
 }

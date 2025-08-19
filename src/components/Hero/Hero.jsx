@@ -6,12 +6,12 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 const Hero = () => {
   return (
     <div id='home' className='hero'>
-        <img src={profile_img} alt="" />
-        <h1><span>I'm Julian Merchan,</span> Developer based in Colombia.</h1>
-        <p>A Software Engineering student, with 3 years of learning and 2 years focused on own projects.</p>
+        <img src={profile_img} alt="Foto de perfil" />
+        <h1><span>Soy Julián Merchán,</span> Desarrollador Frontend (React).</h1>
+        <p>Diseño y construyo interfaces rápidas, accesibles y mantenibles con React, JavaScript, HTML y CSS. Me enfoco en buenas prácticas, rendimiento y UX, alineado a necesidades reales de negocio.</p>
         <div className="hero-action">
-            <div className="hero-connect"><AnchorLink className='anchor-link' offset={50} href='#contact'>Conect With Me</AnchorLink></div>
-            <div className="hero-resumen">My Resume</div>
+            <div className="hero-connect"><AnchorLink className='anchor-link' offset={50} href='#contact'>Contactar</AnchorLink></div>
+            <div className="hero-resumen">Mi CV</div>
         </div>
     </div>
   )

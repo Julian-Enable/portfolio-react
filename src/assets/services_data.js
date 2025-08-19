@@ -1,33 +1,33 @@
 const Services_Data = [
     {
         s_no:"01",
-        s_name:"Web design",
-        s_desc:"I develop modern, responsive websites that look great and offer a seamless user experience. My goal is to combine functionality and design to create standout web pages."
+        s_name:"Desarrollo Frontend (React)",
+        s_desc:"Construcción de interfaces modernas con React, Vite y componentes reutilizables. Código limpio, escalable y orientado a performance."
     },
     {
         s_no:"02",
-        s_name:"Graphics design",
-        s_desc:"I transform ideas into impactful visual designs. From logos to illustrations and graphics, I strive to create visual elements that effectively represent the essence of each project."
+        s_name:"Integración con APIs",
+        s_desc:"Consumo e integración de APIs REST, manejo de estado y validaciones. Manejo de errores y UX de carga."
     },
     {
         s_no:"03",
-        s_name:"Social media",
-        s_desc:"I manage and create social media content that increases visibility. My focus is on creative strategies that connect with the audience and strengthen online presence."
+        s_name:"Optimización y Accesibilidad",
+        s_desc:"Mejoras de rendimiento (Lighthouse/Core Web Vitals) y accesibilidad (WAI-ARIA), para productos más rápidos e inclusivos."
     },
     {
         s_no:"04",
-        s_name:"App design",
-        s_desc:"I design intuitive, attractive mobile apps focused on enhancing user experience. My process includes research, interface design, and creating interactive prototypes."
+        s_name:"UI con CSS moderno",
+        s_desc:"Maquetación con Flexbox/Grid, animaciones sutiles y diseño responsivo mobile-first."
     },
     {
         s_no:"05",
-        s_name:"Digital marketing",
-        s_desc:"I develop digital marketing strategies that drive growth and online visibility. I combine SEO, and data analysis to optimize campaigns and achieve marketing goals"
+        s_name:"Mejora de Código / Refactor",
+        s_desc:"Estandarización de estilos, ESLint, organización de componentes y buenas prácticas para equipos."
     },
     {
         s_no:"06",
-        s_name:"Content writing",
-        s_desc:"I write persuasive content that effectively communicates ideas. My experience ranges from articles and blogs to product descriptions and website content."
+        s_name:"Implementación de Formularios",
+        s_desc:"Formularios accesibles con validación, feedback de estado y protección antispam, integrados con servicios de envío."
     },
 ]
  

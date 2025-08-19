@@ -38,10 +38,11 @@
 .contact-left h1 {
     font-size: 80px;
     font-weight: 700;
-    background: linear-gradient(270deg, #DF8908 80%, #B415FF 100%);
+    background: linear-gradient(135deg, #B415FF 0%, #C94BF5 20%, #DF8908 60%, #FFC857 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 8px rgba(180, 21, 255, 0.18), 0 4px 16px rgba(223, 137, 8, 0.15);
 }
 
 .contact-left p {
@@ -108,18 +109,19 @@
 .contact-submit {
     border: none;
     color: white;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
-    font-size: 22px;
-    padding: 20px 60px;
+    border-radius: 999px;
+    background: var(--brand-grad);
+    font-size: 20px;
+    padding: 16px 36px;
     margin-bottom: 50px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: var(--btn-shadow);
 }
 
 .contact-submit:hover {
-    transform: scale(1.1);
-    transition: 0.3s;
+    transform: translateY(-1px);
+    background: var(--brand-grad-soft);
 }
 
 /* Responsividad para pantallas medianas (tablets) */

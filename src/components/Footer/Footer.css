@@ -42,13 +42,14 @@
 }
 
 .footer-subscribe {
-    font-size: 20px;
-    padding: 22px 50px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+    font-size: 18px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: var(--brand-grad);
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.2s ease, background 0.3s ease;
     flex-shrink: 0;
+    box-shadow: var(--btn-shadow);
 }
 
 .footer-bottom {
@@ -68,8 +69,8 @@
 }
 
 .footer-subscribe:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
+    transform: translateY(-1px);
+    background: var(--brand-grad-soft);
 }
 
 /* Responsividad para pantallas medianas (tablets) */

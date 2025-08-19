@@ -9,23 +9,23 @@ const Footer = () => {
         <div className="footer-top">
             <div className="footer-top-left">
                 <img src={footer_logo} alt="" />
-                <p>I am passionate about development, a lover of scripts and web design, using technologies such as HTML, CSS, JS, Python. Etc</p>
+                <p>Desarrollador Frontend enfocado en React, rendimiento y buenas prácticas. Creo interfaces accesibles y fluidas orientadas al usuario y al negocio.</p>
             </div>
             <div className="footer-top-right">
-                <div className="footer-email-input">
+                <div className="footer-email-input" role="group" aria-label="Formulario de suscripción">
                     <img src={user_icon} alt="" />
-                    <input type="email" placeholder='Enter your email' />
+                    <input type="email" placeholder='Ingresa tu correo' aria-label='Correo electrónico' />
                 </div>
-                <div className="footer-subscribe">Subscribe</div>
+                <div className="footer-subscribe">Suscribirme</div>
             </div>
         </div>
         <hr />
         <div className="footer-bottom">
-            <p className="footer-bottom-left">© 2024 Julian Gonzalez. All rights reserved.</p>
+            <p className="footer-bottom-left">© 2024 Julián Merchán. Todos los derechos reservados.</p>
             <div className="footer-bottom-right">
-                <p>Term of Services</p>
-                <p>Privacy Policy</p>
-                <p>Conect With Me</p>
+                <p>Términos del servicio</p>
+                <p>Política de privacidad</p>
+                <p>Conecta conmigo</p>
             </div>
         </div>
     </div>

@@ -8,22 +8,22 @@ const MyWork = () => {
   return (
     <div id='work' className='mywork'>
         <div className="mywork-title">
-            <h1>My Latest Work</h1>
+            <h1>Mis últimos trabajos</h1>
             <img src={theme_pattern} alt="" />
         </div>
         <div className="mywork-container">
             {mywork_data.map((work, index) => {
                 return (
                     <a key={index} href={work.w_link} target="_blank" rel="noopener noreferrer">
-                        <img src={work.w_img} alt={work.w_name} />
+                        <img src={work.w_img} alt={work.w_name} loading="lazy" decoding="async" />
                     </a>
                 );
             })}
         </div>
         <div className="mywork-showmore">
             <a href="https://github.com/Julian-Enable" target="_blank" rel="noopener noreferrer" className="showmore-link">
-                <p>Show More</p>
-                <img src={arrow_icon} alt="Arrow Icon" />
+                <p>Ver más</p>
+                <img src={arrow_icon} alt="Ver más" />
             </a>
         </div>
     </div>
