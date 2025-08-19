@@ -4,6 +4,7 @@ import project3_img from '../assets/project_3.svg'
 import project4_img from '../assets/project_4.svg'
 import project5_img from '../assets/project_5.svg'
 import project6_img from '../assets/project_6.svg'
+import project7_img from '../assets/project_7.svg'
 
 const mywork_data = [
     {
@@ -41,6 +42,12 @@ const mywork_data = [
         w_name: "Wordle Game",
         w_img: project6_img,
         w_link: "https://github.com/Julian-Enable/Wordle-Game"
+    },
+    {
+        w_no: 7,
+        w_name: "CancionEmocion",
+        w_img: project7_img,
+        w_link: "https://cancionemocion.netlify.app/"
     },
 ]
 
