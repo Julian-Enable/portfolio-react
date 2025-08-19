@@ -21,7 +21,7 @@ const Services_Data = [
     },
     {
         s_no:"05",
-        s_name:"Mejora de Código / Refactor",
+        s_name:"Mejora de Código",
         s_desc:"Estandarización de estilos, ESLint, organización de componentes y buenas prácticas para equipos."
     },
     {

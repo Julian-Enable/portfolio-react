@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 170px;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
 }
 
 .services-title {
@@ -25,20 +27,20 @@
 }
 
 .services-format {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding: 60px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto; /* número, título, contenido, CTA */
+    gap: 16px;
+    padding: 40px;
     border-radius: 10px;
     border: 2px solid white;
-    transition: 0.4s;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.3s ease, box-shadow 0.2s ease;
     cursor: pointer;
+    height: 100%;
 }
 
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 28px;
     margin-bottom: 80px;
     width: 100%;
@@ -47,6 +49,8 @@
 .services-format h3 {
     font-size: 28px;
     font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1;
 }
 
 .services-format h2 {
@@ -56,21 +60,42 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+    padding-bottom: 8px;
+    margin: 0;
+    /* revertimos clamp/altura fija */
+}
+
+.services-format h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .services-format p {
     color: #d4d4d4;
-    font-size: 24px;
-    line-height: 40px;
-    max-width: 300px;
+    font-size: 18px;
+    line-height: 32px;
+    max-width: 52ch;
+    margin: 0;
+    /* revertimos clamp/altura fija */
 }
 
 .services-readmore {
-    display: flex;
-    gap: 20px;
+    display: inline-flex;
+    gap: 10px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
+
+/* Asegura que el contenido no empuje el ancho por palabras largas */
+.services-format > * { min-width: 0; }
 
 .services-format:hover {
     border: 2px solid rgba(180, 21, 255, 0.65);
@@ -85,7 +110,8 @@
     .services {
         align-items: start;
         gap: 50px;
-        margin: 60px 50px;
+        margin: 60px auto;
+        padding: 0 30px;
     }
 
     .services-title h1 {
@@ -127,7 +153,8 @@
     .services {
         align-items: center;
         gap: 40px;
-        margin: 30px 20px;
+        margin: 30px auto;
+        padding: 0 16px;
     }
 
     .services-title h1 {

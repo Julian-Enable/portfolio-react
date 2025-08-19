@@ -41,6 +41,15 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Bloquear scroll del body cuando el menú móvil está abierto
+  useEffect(() => {
+    if (isMenuOpen) {
+      const previous = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = previous; };
+    }
+  }, [isMenuOpen]);
+
   return (
     <div className='navbar'>
       <img src={logo} alt="Logo" />
@@ -58,31 +67,31 @@ const Navbar = () => {
           <AnchorLink className='anchor-link' href='#home' onClick={() => { setMenu("home"); closeMenu(); }} role="menuitem" aria-current={menu === 'home' ? 'page' : undefined}>
             Inicio
           </AnchorLink>
-          {menu === "home" ? <img src={underline} alt="Subrayado" /> : null}
+          {menu === "home" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
         </li>
         <li role="none">
           <AnchorLink className='anchor-link' offset={50} href='#about' onClick={() => { setMenu("about"); closeMenu(); }} role="menuitem" aria-current={menu === 'about' ? 'page' : undefined}>
             Sobre mí
           </AnchorLink>
-          {menu === "about" ? <img src={underline} alt="Subrayado" /> : null}
+          {menu === "about" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
         </li>
         <li role="none">
           <AnchorLink className='anchor-link' offset={50} href='#services' onClick={() => { setMenu("services"); closeMenu(); }} role="menuitem" aria-current={menu === 'services' ? 'page' : undefined}>
             Servicios
           </AnchorLink>
-          {menu === "services" ? <img src={underline} alt="Subrayado" /> : null}
+          {menu === "services" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
         </li>
         <li role="none">
           <AnchorLink className='anchor-link' offset={50} href='#work' onClick={() => { setMenu("work"); closeMenu(); }} role="menuitem" aria-current={menu === 'work' ? 'page' : undefined}>
             Portafolio
           </AnchorLink>
-          {menu === "work" ? <img src={underline} alt="Subrayado" /> : null}
+          {menu === "work" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
         </li>
         <li role="none">
           <AnchorLink className='anchor-link' offset={50} href='#contact' onClick={() => { setMenu("contact"); closeMenu(); }} role="menuitem" aria-current={menu === 'contact' ? 'page' : undefined}>
             Contacto
           </AnchorLink>
-          {menu === "contact" ? <img src={underline} alt="Subrayado" /> : null}
+          {menu === "contact" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
         </li>
       </ul>
       <div className="nav-connect">

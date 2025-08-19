@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 170px;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
 }
 
 .about-title {
@@ -60,18 +62,26 @@
 }
 
 .about-skill p {
-    min-width: 150px;
+    min-width: 200px;
+    max-width: 200px;
     font-size: 24px;
     font-weight: 500;
+    flex-shrink: 0;
 }
 
-.about-skill hr {
-    outline: none;
-    border: none;
+.skill-bar {
     width: 50%;
     height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
     border-radius: 50px;
     background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+    transition: width 0.3s ease;
 }
 
 .about-archivements {
@@ -131,9 +141,11 @@
 
     .about-skill p {
         font-size: 22px;
+        min-width: 180px;
+        max-width: 180px;
     }
 
-    .about-skill hr {
+    .skill-bar {
         height: 6px;
     }
 
@@ -180,9 +192,11 @@
 
     .about-skill p {
         font-size: 16px;
+        min-width: 140px;
+        max-width: 140px;
     }
 
-    .about-skill hr {
+    .skill-bar {
         height: 4px;
     }
 
