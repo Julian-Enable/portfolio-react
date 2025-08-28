@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-top">
             <div className="footer-top-left">
                 <img src={footer_logo} alt="" />
-                <p>Desarrollador Frontend enfocado en React, rendimiento y buenas prácticas. Creo interfaces accesibles y fluidas orientadas al usuario y al negocio.</p>
+                <p>Desarrollador de Software especializado en web y automatización. Experto en React y tecnologías modernas.</p>
             </div>
             <div className="footer-top-right">
                 <div className="footer-email-input" role="group" aria-label="Formulario de suscripción">

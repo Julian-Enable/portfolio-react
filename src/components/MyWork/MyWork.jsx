@@ -12,13 +12,17 @@ const MyWork = () => {
             <img src={theme_pattern} alt="" />
         </div>
         <div className="mywork-container">
-            {mywork_data.map((work, index) => {
-                return (
-                    <a key={index} href={work.w_link} target="_blank" rel="noopener noreferrer">
-                        <img src={work.w_img} alt={work.w_name} loading="lazy" decoding="async" />
-                    </a>
-                );
-            })}
+            {mywork_data.map((work, index) => (
+                <a key={index} href={work.w_link} target="_blank" rel="noopener noreferrer" className="mywork-card">
+                    <div className="mywork-img-wrapper">
+                        <img src={work.w_img} alt={work.w_name + ' - imagen del proyecto'} loading="lazy" decoding="async" />
+                    </div>
+                    <div className="mywork-info">
+                        <h3 className="mywork-title-name">{work.w_name}</h3>
+                        <p className="mywork-desc">{work.w_desc}</p>
+                    </div>
+                </a>
+            ))}
         </div>
         <div className="mywork-showmore">
             <a href="https://github.com/Julian-Enable" target="_blank" rel="noopener noreferrer" className="showmore-link">
