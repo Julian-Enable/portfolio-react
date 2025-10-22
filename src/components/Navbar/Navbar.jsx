@@ -73,7 +73,6 @@ const Navbar = () => {
         <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
           <img src={menu_open} alt="Abrir menú" />
         </button>
-        </button>
         {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true"></div>}
       <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'open' : ''}`} role="menubar">
         <li role="none">
