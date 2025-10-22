@@ -61,7 +61,7 @@ const Navbar = () => {
       distortionScale={-150}
       brightness={50}
       opacity={0.95}
-      backgroundOpacity={0.02}
+      backgroundOpacity={0.08}
       saturation={1.8}
       blur={20}
       redOffset={0}
