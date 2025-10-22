@@ -1,8 +1,17 @@
 import './About.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
-import profile_img from '../../assets/about_profile.svg'
+import code_pattern from '../../assets/code_pattern.svg'
+import profile_img from '../../assets/Profile photo.png'
+import ProfileCard from '../ProfileCard/ProfileCard'
 
 const About = () => {
+    const handleContactClick = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
         <div id='about' className='about'>
             <div className="about-title">
@@ -11,42 +20,56 @@ const About = () => {
             </div>
             <div className="about-sections">
                 <div className="about-left">
-                    <img src={profile_img} alt="Ilustración de perfil" />
+                    <ProfileCard
+                        name="Julian D. Gonzalez"
+                        title="Full-Stack & IA Developer"
+                        handle="Julian-Enable"
+                        status="Disponible para proyectos"
+                        contactText="CONTÁCTAME"
+                        avatarUrl={profile_img}
+                        iconUrl={code_pattern}
+                        grainUrl={theme_pattern}
+                        showBehindGradient={true}
+                        showUserInfo={true}
+                        enableTilt={true}
+                        enableMobileTilt={false}
+                        onContactClick={handleContactClick}
+                    />
                 </div>
                 <div className="about-right">
                     <div className="about-para">
-                        <p>Soy Desarrollador de Software Full-Stack especializado en desarrollo web moderno e integración con IA. Construyo soluciones end-to-end con React, Node.js y Python, incorporando inteligencia artificial para automatización y mejora de la experiencia del usuario.</p>
-                        <p>Trabajo con JavaScript/TypeScript, React/Next.js, Node.js/Express, Python y APIs de IA (OpenAI, Claude). Me especializo en crear aplicaciones escalables, APIs REST/GraphQL, automatizaciones inteligentes y optimización de performance (Core Web Vitals, SEO).</p>
+                        <p>Transformo ideas en experiencias digitales donde el código elegante se encuentra con la inteligencia artificial. Construyo aplicaciones que no solo funcionan, sino que aprenden y evolucionan.</p>
+                        <p>Mi enfoque combina desarrollo full-stack con automatización inteligente, creando soluciones escalables que impulsan resultados reales. Cada proyecto es una oportunidad para innovar y superar expectativas.</p>
                     </div>
                     <div className="about-skills">
                         <div className="about-skill">
-                            <p>React / Next.js / TypeScript</p>
+                            <p>Frontend Development</p>
                             <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "90%" }}></div>
+                                <div className="skill-fill" style={{ width: "60%" }}></div>
                             </div>
                         </div>
                         <div className="about-skill">
-                            <p>Node.js / APIs REST</p>
+                            <p>Backend & APIs</p>
                             <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "85%" }}></div>
+                                <div className="skill-fill" style={{ width: "70%" }}></div>
                             </div>
                         </div>
                         <div className="about-skill">
-                            <p>IA / OpenAI / Automatización</p>
+                            <p>AI & Automation</p>
                             <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "80%" }}></div>
+                                <div className="skill-fill" style={{ width: "55%" }}></div>
                             </div>
                         </div>
                         <div className="about-skill">
-                            <p>Python / Machine Learning</p>
+                            <p>Data Science</p>
                             <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "75%" }}></div>
+                                <div className="skill-fill" style={{ width: "35%" }}></div>
                             </div>
                         </div>
                         <div className="about-skill">
-                            <p>Performance / SEO / PWA</p>
+                            <p>Performance & SEO</p>
                             <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "85%" }}></div>
+                                <div className="skill-fill" style={{ width: "60%" }}></div>
                             </div>
                         </div>
                     </div>

@@ -7,17 +7,62 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-padding-top: 80px;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+  border-radius: 10px;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFA520 0%, #E560FF 50%, #C92AFF 100%);
+}
+
 body{
   height: 100vh;
   background: #161513;
   color: white;
   font-family: 'outfit';
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
+/* Smooth momentum scrolling on iOS */
+body {
+  -webkit-overflow-scrolling: touch;
 }
 
 :root{

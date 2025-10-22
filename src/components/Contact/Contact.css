@@ -5,123 +5,287 @@
     justify-content: center;
     gap: 80px;
     margin: 80px 170px;
+    padding: 60px 0;
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(223, 137, 8, 0.15) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .contact-title {
     position: relative;
+    text-align: center;
 }
 
 .contact-title h1 {
     padding: 0px 30px;
     font-size: 80px;
-    font-weight: 600;
+    font-weight: 800;
+    background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+    position: relative;
+}
+
+.contact-title h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #C94BF5, transparent);
+    border-radius: 2px;
 }
 
 .contact-title img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
+    display: none;
 }
 
 .contact-section {
-    display: flex;
-    gap: 150px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
+    width: 100%;
+    max-width: 1300px;
 }
 
 .contact-left {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 32px;
 }
 
 .contact-left h1 {
-    font-size: 80px;
+    font-size: 42px;
     font-weight: 700;
-    background: linear-gradient(135deg, #B415FF 0%, #C94BF5 20%, #DF8908 60%, #FFC857 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 8px rgba(180, 21, 255, 0.18), 0 4px 16px rgba(223, 137, 8, 0.15);
+    color: #ffffff;
+    margin-bottom: 4px;
+    line-height: 1.2;
 }
 
 .contact-left p {
-    max-width: 550px;
-    color: #D8D8D8;
-    font-size: 20px;
-    line-height: 35px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 16px;
 }
 
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    color: #D8D8D8;
-    font-size: 22px;
+    gap: 16px;
 }
 
 .contact-detail {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, rgba(223, 137, 8, 0.05) 0%, rgba(201, 75, 245, 0.05) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.contact-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.contact-detail:hover::before {
+    left: 100%;
+}
+
+.contact-detail:hover {
+    background: linear-gradient(135deg, rgba(223, 137, 8, 0.1) 0%, rgba(201, 75, 245, 0.1) 100%);
+    border-color: rgba(223, 137, 8, 0.4);
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(223, 137, 8, 0.2);
+}
+
+.contact-detail img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(1.2);
+}
+
+.contact-detail p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
 }
 
 .contact-right {
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 30px;
-    width: 100%;
-    /* Asegúrate de que el formulario ocupe el ancho disponible */
+    gap: 24px;
+    background: rgba(20, 20, 25, 0.6);
+    padding: 48px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.contact-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(223, 137, 8, 0.5), rgba(201, 75, 245, 0.5), transparent);
 }
 
 .contact-right label {
-    color: #D8D8D8;
-    font-size: 22px;
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: -16px;
 }
 
 .contact-right input {
-    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.12);
     width: 100%;
-    /* Usar 100% en lugar de un ancho fijo */
-    height: 78px;
-    padding-left: 20px;
-    border-radius: 4px;
-    background-color: #32323c;
-    color: #A0A0A0;
+    height: 58px;
+    padding: 0 24px;
+    border-radius: 14px;
+    background: rgba(30, 30, 38, 0.8);
+    color: #ffffff;
     font-family: outfit;
-    font-size: 20px;
+    font-size: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.contact-right input:focus {
+    outline: none;
+    border-color: #DF8908;
+    background: rgba(30, 30, 38, 1);
+    box-shadow: 
+        0 0 0 4px rgba(223, 137, 8, 0.1),
+        0 0 20px rgba(223, 137, 8, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .contact-right textarea {
     width: 100%;
-    /* Usar 100% en lugar de un ancho fijo */
-    border: none;
-    padding: 25px;
-    border-radius: 4px;
-    background: #32323c;
-    color: #A0A0A0;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    padding: 20px 24px;
+    border-radius: 14px;
+    background: rgba(30, 30, 38, 0.8);
+    color: #ffffff;
     font-family: outfit;
-    font-size: 20px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 150px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-right textarea:focus {
+    outline: none;
+    border-color: #DF8908;
+    background: rgba(30, 30, 38, 1);
+    box-shadow: 
+        0 0 0 4px rgba(223, 137, 8, 0.1),
+        0 0 20px rgba(223, 137, 8, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
 
 .contact-submit {
     border: none;
     color: white;
-    border-radius: 999px;
-    background: var(--brand-grad);
-    font-size: 20px;
-    padding: 16px 36px;
-    margin-bottom: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 48px;
+    margin-top: 12px;
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease;
-    box-shadow: var(--btn-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 15px rgba(223, 137, 8, 0.4),
+        0 0 40px rgba(223, 137, 8, 0.2);
+}
+
+.contact-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.contact-submit:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .contact-submit:hover {
-    transform: translateY(-1px);
-    background: var(--brand-grad-soft);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 8px 25px rgba(223, 137, 8, 0.5),
+        0 0 60px rgba(223, 137, 8, 0.3);
+}
+
+.contact-submit:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.contact-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.contact-submit:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(223, 137, 8, 0.4);
 }
 
 /* Responsividad para pantallas medianas (tablets) */

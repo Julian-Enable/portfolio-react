@@ -16,10 +16,6 @@ const Services = () => {
                         <h3>{service.s_no}</h3>
                         <h2>{service.s_name}</h2>
                         <p>{service.s_desc}</p>
-                        <div className='services-readmore'>
-                            <p>Ver más</p>
-                            <img src={arrow_icon} alt="Ver más" />
-                        </div>
                     </div>
                 })}
             </div>

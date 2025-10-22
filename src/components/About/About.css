@@ -34,6 +34,12 @@
     width: 100%;
 }
 
+.about-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-right {
     display: flex;
     flex-direction: column;
@@ -51,71 +57,92 @@
 .about-skills {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .about-skill {
     display: flex;
-    gap: 50px;
+    gap: 30px;
     align-items: center;
     transition: 0.3s;
 }
 
 .about-skill p {
-    min-width: 200px;
-    max-width: 200px;
-    font-size: 24px;
+    min-width: 180px;
+    max-width: 180px;
+    font-size: 18px;
     font-weight: 500;
     flex-shrink: 0;
 }
 
 .skill-bar {
     width: 50%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
+    height: 12px;
+    background: linear-gradient(90deg, 
+        rgba(223, 137, 8, 0.1) 0%, 
+        rgba(201, 75, 245, 0.1) 50%, 
+        rgba(180, 21, 255, 0.1) 100%);
+    border-radius: 6px;
     overflow: hidden;
     position: relative;
-}
-
-.skill-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, 
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .skill-fill {
     height: 100%;
-    border-radius: 50px;
-    background: linear-gradient(90deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
-    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 6px;
+    background: linear-gradient(135deg, 
+        #DF8908 0%, 
+        #E89520 25%,
+        #C94BF5 50%, 
+        #B83FE8 75%,
+        #B415FF 100%);
+    background-size: 300% 100%;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    box-shadow: 0 0 10px rgba(180, 21, 255, 0.3);
+    animation: gradient-flow 4s ease infinite;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.skill-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { left: -100%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
 }
 
 .skill-fill::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
-    filter: blur(8px);
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(0, 0, 0, 0.2) 100%);
+    border-radius: 6px;
+    pointer-events: none;
 }
 
 .about-archivements {

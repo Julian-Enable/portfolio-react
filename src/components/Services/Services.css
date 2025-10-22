@@ -77,14 +77,20 @@
 .services-format h2 {
     font-size: 38px;
     font-weight: 800;
-    background: linear-gradient(270deg, #DF8908 50%, #B415FF 100%);
+    background: linear-gradient(120deg, #B415FF 0%, #C94BF5 25%, #DF8908 50%, #FFC857 75%, #B415FF 100%);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
     padding-bottom: 8px;
     margin: 0;
-    /* revertimos clamp/altura fija */
+    animation: gradient-text 4s ease infinite;
+}
+
+@keyframes gradient-text {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
 }
 
 .services-format h2::after {
@@ -113,6 +119,18 @@
     margin-top: 8px;
     padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.services-readmore:hover {
+    gap: 14px;
+    color: #DF8908;
+}
+
+.services-readmore:hover img {
+    transform: translateX(4px);
 }
 
 /* Asegura que el contenido no empuje el ancho por palabras largas */

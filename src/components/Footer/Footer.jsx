@@ -1,86 +1,50 @@
-import { useState } from 'react'
 import './Footer.css'
-import footer_logo from '../../assets/footer_logo.svg'
-import user_icon from '../../assets/user_icon.svg'
+import LogoLoop from '../LogoLoop/LogoLoop'
+import { FaReact, FaNodeJs, FaPython, FaDocker, FaAws } from 'react-icons/fa'
+import { SiTypescript, SiNextdotjs, SiMongodb, SiPostgresql, SiOpenai } from 'react-icons/si'
 
 const Footer = () => {
-  const [email, setEmail] = useState('')
-  const [subscribeMessage, setSubscribeMessage] = useState('')
-  const [isSubscribing, setIsSubscribing] = useState(false)
-
-  const handleSubscribe = async () => {
-    if (!email || !email.includes('@')) {
-      setSubscribeMessage('Por favor ingresa un correo válido')
-      setTimeout(() => setSubscribeMessage(''), 3000)
-      return
-    }
-
-    setIsSubscribing(true)
-    setSubscribeMessage('')
-
-    try {
-      // Simulación de suscripción (puedes integrar con un servicio real como Mailchimp, ConvertKit, etc.)
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      setSubscribeMessage('¡Suscripción exitosa! Gracias por unirte.')
-      setEmail('')
-      setTimeout(() => setSubscribeMessage(''), 4000)
-    } catch (error) {
-      setSubscribeMessage('Error al suscribir. Intenta nuevamente.')
-      setTimeout(() => setSubscribeMessage(''), 3000)
-    } finally {
-      setIsSubscribing(false)
-    }
-  }
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSubscribe()
-    }
-  }
+  const techLogos = [
+    { node: <FaReact size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'React' },
+    { node: <FaNodeJs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Node.js' },
+    { node: <SiTypescript size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'TypeScript' },
+    { node: <FaPython size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Python' },
+    { node: <SiNextdotjs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Next.js' },
+    { node: <SiOpenai size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'OpenAI' },
+    { node: <SiMongodb size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'MongoDB' },
+    { node: <SiPostgresql size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'PostgreSQL' },
+    { node: <FaDocker size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Docker' },
+    { node: <FaAws size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'AWS' }
+  ]
 
   return (
     <div className='footer'>
         <div className="footer-top">
-            <div className="footer-top-left">
-                <img src={footer_logo} alt="Logo Julián Merchán" />
-                <p>Desarrollador Full-Stack especializado en React, Node.js e integración con IA. Construyo soluciones web modernas, APIs escalables y automatizaciones inteligentes.</p>
-            </div>
-            <div className="footer-top-right">
-                <div className="footer-email-input" role="group" aria-label="Formulario de suscripción">
-                    <img src={user_icon} alt="Icono de usuario" />
-                    <input 
-                      type="email" 
-                      placeholder='Ingresa tu correo' 
-                      aria-label='Correo electrónico' 
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      disabled={isSubscribing}
+            <div className="footer-logo-section">
+                <h2 className="footer-tech-title">Tecnologías que domino</h2>
+                <div style={{ height: '120px', position: 'relative' }}>
+                    <LogoLoop
+                        logos={techLogos}
+                        speed={60}
+                        direction="left"
+                        logoHeight={48}
+                        gap={120}
+                        pauseOnHover
+                        scaleOnHover
+                        fadeOut
+                        fadeOutColor="#161513"
+                        ariaLabel="Tecnologías que utilizo"
                     />
                 </div>
-                <button 
-                  className="footer-subscribe" 
-                  onClick={handleSubscribe}
-                  disabled={isSubscribing}
-                  aria-busy={isSubscribing}
-                >
-                  {isSubscribing ? 'Suscribiendo...' : 'Suscribirme'}
-                </button>
             </div>
-            {subscribeMessage && (
-              <p className="footer-subscribe-message" role="alert" aria-live="polite">
-                {subscribeMessage}
-              </p>
-            )}
         </div>
         <hr />
         <div className="footer-bottom">
             <p className="footer-bottom-left">© {new Date().getFullYear()} Julián Merchán. Todos los derechos reservados.</p>
             <nav className="footer-bottom-right" aria-label="Enlaces legales y sociales">
-                <a href="#terminos" aria-label="Términos del servicio">Términos del servicio</a>
-                <a href="#privacidad" aria-label="Política de privacidad">Política de privacidad</a>
-                <a href="https://github.com/Julian-Enable" target="_blank" rel="noopener noreferrer" aria-label="Conecta conmigo en GitHub">Conecta conmigo</a>
+                <a href="#contact" aria-label="Ir a la sección de contacto">Contacto</a>
+                <a href="https://github.com/Julian-Enable" target="_blank" rel="noopener noreferrer" aria-label="Visita mi perfil de GitHub">GitHub</a>
+                <a href="https://www.linkedin.com/in/julian-enable/" target="_blank" rel="noopener noreferrer" aria-label="Conéctate conmigo en LinkedIn">LinkedIn</a>
             </nav>
         </div>
     </div>

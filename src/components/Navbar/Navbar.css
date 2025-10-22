@@ -1,26 +1,29 @@
+.navbar-glass {
+    position: fixed !important;
+    top: 20px;
+    left: 170px;
+    right: 170px;
+    z-index: 1000;
+    height: auto !important;
+    width: auto !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.navbar-glass .glass-surface__content {
+    padding: 0 !important;
+    height: auto !important;
+}
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 170px;
-    position: fixed;
-    top: 0;
-    width: calc(100% - 340px);
-    background: rgba(20, 20, 20, 0.65);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    z-index: 1000;
+    width: 100%;
     padding: 10px 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
-                0 0 0 1px rgba(255, 255, 255, 0.05);
+    background: transparent;
+    border: none;
     transition: all 0.3s ease;
-}
-
-.navbar:hover {
-    background: rgba(20, 20, 20, 0.75);
-    border-color: rgba(180, 21, 255, 0.15);
 }
 
 .nav-menu {
@@ -37,12 +40,31 @@
     gap: 10px;
     position: relative;
 }
-/* Subrayado activo mejor posicionado */
+
+.nav-menu li .anchor-link {
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu li .anchor-link:hover {
+    background: rgba(223, 137, 8, 0.1);
+}
+
+/* Indicador activo con punto y glow */
 .nav-active-underline {
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
+}
+
+.nav-menu li:has(.anchor-link) {
+    position: relative;
+}
+
+.nav-menu li:has(.nav-active-underline) .anchor-link {
+    background: linear-gradient(135deg, rgba(223, 137, 8, 0.15), rgba(201, 75, 245, 0.15));
+    color: #DF8908;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(223, 137, 8, 0.3);
 }
 
 .nav-underline {

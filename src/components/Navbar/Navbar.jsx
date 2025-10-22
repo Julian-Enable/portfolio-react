@@ -5,6 +5,7 @@ import underline from '../../assets/nav_underline.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import menu_open from '../../assets/menu_open.svg';
 import menu_close from '../../assets/menu_close.svg';
+import GlassSurface from '../GlassSurface/GlassSurface';
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
@@ -51,12 +52,24 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className='navbar'>
-      <img src={logo} alt="Logo" />
-      <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
-        <img src={menu_open} alt="Abrir menú" />
-      </button>
-      {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true"></div>}
+    <GlassSurface 
+      width="100%" 
+      height="80"
+      borderRadius={0}
+      className="navbar-glass"
+      displace={8}
+      distortionScale={-150}
+      brightness={10}
+      opacity={0.15}
+      backgroundOpacity={0.05}
+      saturation={1.3}
+    >
+      <div className='navbar'>
+        <img src={logo} alt="Logo" />
+        <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
+          <img src={menu_open} alt="Abrir menú" />
+        </button>
+        {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true"></div>}
       <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'open' : ''}`} role="menubar">
         <li role="none">
           <button aria-label="Cerrar menú" className="nav-mob-close" onClick={closeMenu}>
@@ -94,10 +107,8 @@ const Navbar = () => {
           {menu === "contact" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
         </li>
       </ul>
-      <div className="nav-connect">
-        <AnchorLink className='anchor-link' offset={50} href='#contact'>Contáctame</AnchorLink>
       </div>
-    </div>
+    </GlassSurface>
   )
 }
 
