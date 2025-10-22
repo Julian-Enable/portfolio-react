@@ -73,21 +73,17 @@
 }
 
 .nav-menu li:has(.nav-active-underline) .anchor-link {
-    background: linear-gradient(135deg, 
-        rgba(223, 137, 8, 0.08) 0%, 
-        rgba(201, 75, 245, 0.08) 50%,
-        rgba(180, 21, 255, 0.08) 100%);
+    background: rgba(255, 255, 255, 0.03);
     background-size: 200% 200%;
     animation: gradientShift 4s ease infinite;
     color: #ffffff;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     box-shadow: 
-        0 0 15px rgba(223, 137, 8, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .nav-menu li:has(.nav-active-underline) .anchor-link::after {
@@ -288,16 +284,14 @@
 
     /* Indicador activo en menú móvil */
     .nav-menu li:has(.nav-active-underline) .anchor-link {
-        background: linear-gradient(90deg, 
-            rgba(223, 137, 8, 0.12) 0%, 
-            rgba(201, 75, 245, 0.08) 100%);
-        border-left: 3px solid rgba(223, 137, 8, 0.6);
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 3px solid rgba(255, 255, 255, 0.3);
         padding-left: 27px;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
         box-shadow: 
-            0 0 15px rgba(223, 137, 8, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            0 4px 12px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .nav-menu li:has(.nav-active-underline) .anchor-link::after {
