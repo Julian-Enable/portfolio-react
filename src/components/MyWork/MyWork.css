@@ -290,7 +290,8 @@
     }
 
     .mywork-cardswap-wrapper {
-        height: 450px;
+        height: 350px;
+        padding-top: 30px;
     }
 
     .mywork-showmore {
@@ -355,13 +356,14 @@
     }
 
     .mywork-cardswap-wrapper {
-        height: 380px;
+        height: 280px;
         width: 100%;
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     .project-card-content {
-        border-radius: 14px;
+        border-radius: 12px;
+        border-width: 1px;
     }
 
     .mywork-showmore {

@@ -195,6 +195,10 @@
         font-size: 60px;
     }
 
+    .about-title img {
+        width: 130px;
+    }
+
     .about-sections {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -219,6 +223,22 @@
     }
 }
 
+/* Responsividad para tablets pequeñas */
+@media(max-width: 768px) {
+    .about {
+        gap: 50px;
+        margin: 30px 30px;
+    }
+
+    .about-title h1 {
+        font-size: 50px;
+    }
+
+    .about-title img {
+        width: 110px;
+    }
+}
+
 /* Responsividad para pantallas pequeñas (móviles) */
 @media(max-width: 480px) {
     .about {
@@ -230,11 +250,13 @@
     .about-title h1 {
         font-size: 40px;
         text-align: center;
+        padding: 0 10px;
     }
 
     .about-title img {
         width: 100px;
-        right: 0;
+        right: -10px;
+        bottom: -5px;
     }
 
     .about-sections {
