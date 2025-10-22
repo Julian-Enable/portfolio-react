@@ -55,19 +55,24 @@ const Navbar = () => {
     <GlassSurface 
       width="100%" 
       height="80"
-      borderRadius={0}
+      borderRadius={50}
       className="navbar-glass"
-      displace={8}
+      displace={10}
       distortionScale={-150}
-      brightness={10}
-      opacity={0.15}
-      backgroundOpacity={0.05}
-      saturation={1.3}
+      brightness={15}
+      opacity={0.25}
+      backgroundOpacity={0.15}
+      saturation={1.5}
+      blur={15}
+      redOffset={5}
+      greenOffset={12}
+      blueOffset={20}
     >
       <div className='navbar'>
         <img src={logo} alt="Logo" />
         <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
           <img src={menu_open} alt="Abrir menú" />
+        </button>
         </button>
         {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true"></div>}
       <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'open' : ''}`} role="menubar">
