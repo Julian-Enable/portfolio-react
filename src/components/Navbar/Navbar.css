@@ -44,14 +44,26 @@
 .nav-menu li .anchor-link {
     padding: 8px 20px;
     border-radius: 50px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.nav-menu li .anchor-link:hover {
-    background: rgba(223, 137, 8, 0.1);
+.nav-menu li .anchor-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(223, 137, 8, 0.1), rgba(201, 75, 245, 0.1));
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Indicador activo con punto y glow */
+.nav-menu li .anchor-link:hover::before {
+    opacity: 1;
+}
+
+/* Indicador activo - Píldora con gradiente animado y borde luminoso */
 .nav-active-underline {
     display: none;
 }
@@ -61,10 +73,42 @@
 }
 
 .nav-menu li:has(.nav-active-underline) .anchor-link {
-    background: linear-gradient(135deg, rgba(223, 137, 8, 0.15), rgba(201, 75, 245, 0.15));
-    color: #DF8908;
+    background: linear-gradient(135deg, 
+        rgba(223, 137, 8, 0.2) 0%, 
+        rgba(201, 75, 245, 0.2) 50%,
+        rgba(180, 21, 255, 0.2) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    color: #ffffff;
     font-weight: 600;
-    box-shadow: 0 0 20px rgba(223, 137, 8, 0.3);
+    border: 1.5px solid rgba(223, 137, 8, 0.5);
+    box-shadow: 
+        0 0 20px rgba(223, 137, 8, 0.4),
+        0 0 40px rgba(201, 75, 245, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.nav-menu li:has(.nav-active-underline) .anchor-link::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(180deg, #DF8908, #C94BF5, #B415FF);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 10px rgba(223, 137, 8, 0.6);
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .nav-underline {
@@ -245,6 +289,22 @@
     .nav-menu li .anchor-link {
         display: block;
         width: 100%;
+    }
+
+    /* Indicador activo en menú móvil */
+    .nav-menu li:has(.nav-active-underline) .anchor-link {
+        background: linear-gradient(90deg, 
+            rgba(223, 137, 8, 0.25) 0%, 
+            rgba(201, 75, 245, 0.15) 100%);
+        border-left: 4px solid #DF8908;
+        padding-left: 26px;
+        box-shadow: 
+            0 0 20px rgba(223, 137, 8, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu li:has(.nav-active-underline) .anchor-link::after {
+        display: none;
     }
 }
 
