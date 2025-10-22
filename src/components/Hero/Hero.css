@@ -84,6 +84,14 @@
     overflow: hidden;
 }
 
+.hero-connect .anchor-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
 .hero-connect::before {
     content: '';
     position: absolute;
@@ -193,6 +201,11 @@
         border-radius: 30px;
         width: 100%;
         text-align: center;
+    }
+
+    .hero-connect .anchor-link {
+        display: block;
+        width: 100%;
     }
 
     .hero-resumen {
