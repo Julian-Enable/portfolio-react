@@ -19,7 +19,7 @@
 
 .highlights-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap:28px;
 }
 
@@ -85,8 +85,75 @@
 .highlight-card ul{ margin:4px 0 0 18px; display:grid; gap:6px; }
 .highlight-card li{ color:#d8d8d8; font-size:16px; }
 
+@media(max-width: 768px){
+  .highlights{ 
+    margin: 60px auto; 
+    gap: 50px;
+    padding: 0 30px;
+  }
+  
+  .highlights-title h2 {
+    font-size: 42px;
+  }
+  
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .highlight-card {
+    padding: 30px;
+  }
+  
+  .highlight-card p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  
+  .highlight-card li {
+    font-size: 15px;
+  }
+}
+
 @media(max-width:480px){
-  .highlights{ margin:50px auto; }
+  .highlights{ 
+    margin: 40px auto; 
+    gap: 40px;
+    padding: 0 20px;
+  }
+  
+  .highlights-title h2 {
+    font-size: 36px;
+  }
+  
+  .highlights-title img {
+    width: 120px;
+    right: calc(50% - 120px);
+  }
+  
+  .highlights-grid {
+    gap: 20px;
+  }
+  
+  .highlight-card {
+    padding: 24px;
+    gap: 14px;
+  }
+  
+  .highlight-header {
+    font-size: 20px;
+    margin-bottom: 4px;
+    padding-bottom: 6px;
+  }
+  
+  .highlight-card p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  
+  .highlight-card li {
+    font-size: 14px;
+  }
 }
 
 

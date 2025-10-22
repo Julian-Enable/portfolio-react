@@ -301,38 +301,72 @@
 
 @media (max-width: 480px) {
     .mywork {
-        margin: 40px 0;
+        margin: 40px auto;
         gap: 30px;
-    }
-
-    .mywork-content-wrapper {
         padding: 0 20px;
     }
 
+    .mywork-title {
+        align-self: center;
+        margin-left: 0;
+        padding: 0;
+    }
+
     .mywork-title h1 {
-        font-size: 32px;
-        padding: 0 10px;
+        font-size: 36px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mywork-title img {
+        width: 90px;
+    }
+
+    .mywork-container {
+        padding: 24px 16px;
+    }
+
+    .mywork-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0;
+    }
+
+    .project-description {
+        max-width: 100%;
+        text-align: center;
     }
 
     .description-content h2 {
-        font-size: 28px;
+        font-size: 32px;
+        margin-bottom: 16px;
     }
 
     .description-content p {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 24px;
     }
 
     .description-content .project-link {
-        padding: 12px 24px;
-        font-size: 14px;
+        padding: 12px 28px;
+        font-size: 15px;
+        margin: 0 auto;
     }
 
     .mywork-cardswap-wrapper {
-        height: 400px;
+        height: 380px;
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    .project-card-content {
+        border-radius: 14px;
     }
 
     .mywork-showmore {
         font-size: 16px;
-        padding: 16px 30px;
+        padding: 16px 32px;
+        margin-bottom: 40px;
     }
 }

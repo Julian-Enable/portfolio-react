@@ -1,11 +1,12 @@
 .navbar-glass {
     position: fixed !important;
     top: 20px;
-    left: 170px;
-    right: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 340px);
+    max-width: 1200px;
     z-index: 1000;
     height: auto !important;
-    width: auto !important;
     border-radius: 50px !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
@@ -134,28 +135,33 @@
 }
 
 @media(max-width: 1024px) {
-    .navbar {
-        margin: 20px 50px;
+    .navbar-glass {
         width: calc(100% - 100px);
-        /* Ajusta el ancho para tablets */
+    }
+
+    .navbar {
+        padding: 10px 15px;
     }
 
     .nav-menu {
-        gap: 40px;
+        gap: 30px;
         font-size: 18px;
     }
 
     .nav-connect {
         padding: 15px 30px;
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
 @media(max-width: 820px) {
-    .navbar {
-        margin: 20px 30px;
+    .navbar-glass {
         width: calc(100% - 60px);
-        /* Ajusta el ancho para iPads */
+        border-radius: 30px !important;
+    }
+
+    .navbar {
+        padding: 10px 15px;
     }
 
     .nav-connect {
@@ -165,8 +171,8 @@
     .nav-mob-open {
         display: block;
         position: fixed;
-        right: 24px;
-        top: 22px;
+        right: 40px;
+        top: 28px;
         z-index: 1101;
     }
 
@@ -185,7 +191,7 @@
         align-items: start;
         top: 0;
         gap: 18px;
-        background: rgba(20, 20, 20, 0.55);
+        background: rgba(20, 20, 20, 0.95);
         -webkit-backdrop-filter: saturate(160%) blur(18px);
         backdrop-filter: saturate(160%) blur(18px);
         width: min(80vw, 340px);
@@ -195,6 +201,7 @@
         transition: transform 0.35s ease;
         transform: translateX(100%);
         right: 0;
+        padding-top: 80px;
     }
 
     .nav-menu.open {
@@ -204,38 +211,54 @@
     .nav-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.35);
+        background: rgba(0,0,0,0.5);
         z-index: 1099;
         -webkit-backdrop-filter: blur(2px);
         backdrop-filter: blur(2px);
     }
 
     .nav-menu li {
-        font-size: 22px;
-        padding-left: 20px;
+        font-size: 20px;
+        padding-left: 30px;
         flex-direction: row;
         gap: 20px;
+        width: 100%;
+    }
+
+    .nav-menu li .anchor-link {
+        display: block;
+        width: 100%;
     }
 }
 
 @media(max-width: 480px) {
-    .navbar {
-        margin: 20px 20px;
+    .navbar-glass {
         width: calc(100% - 40px);
-        /* Ajusta el ancho para móviles */
+        top: 15px;
+        border-radius: 25px !important;
+    }
+
+    .navbar {
+        padding: 8px 12px;
+    }
+
+    .nav-mob-open {
+        right: 28px;
+        top: 23px;
     }
 
     .nav-menu {
-        width: 100%;
-        right: -100%;
+        width: 85vw;
+        padding-top: 70px;
     }
 
     .nav-menu li {
-        font-size: 24px;
-        padding-left: 50px;
+        font-size: 18px;
+        padding-left: 25px;
     }
 
     .nav-mob-close {
-        left: 90%;
+        right: 20px;
+        top: 20px;
     }
 }

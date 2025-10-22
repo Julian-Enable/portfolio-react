@@ -1,5 +1,7 @@
 .footer {
-    margin: 50px 170px;
+    margin: 50px auto;
+    max-width: 1400px;
+    padding: 0 170px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -200,31 +202,35 @@
 /* Responsividad para pantallas medianas (tablets) */
 @media(max-width: 1024px) {
     .footer {
-        margin: 40px 30px;
-        /* Reduce márgenes para tablets */
-        gap: 20px;
+        padding: 0 50px;
+        gap: 25px;
     }
 
-    .footer-top {
-        flex-direction: column;
-        gap: 20px;
+    .footer-tech-title {
+        font-size: 28px;
     }
 
-    .footer-top-left p {
-        font-size: 18px;
-        /* Reduce el tamaño de fuente */
+    .footer-logo-loop {
+        padding: 25px 0;
+        margin-bottom: 30px;
     }
 
-    .footer-email-input {
-        padding: 15px 20px;
-        /* Ajusta el padding */
-        padding-right: 20px;
+    .footer-logo-item {
+        min-width: 120px;
+        padding: 15px 25px;
     }
 
-    .footer-subscribe {
-        font-size: 18px;
-        /* Reduce el tamaño del botón */
-        padding: 15px 40px;
+    .footer-logo-icon {
+        font-size: 40px;
+    }
+
+    .footer-cta-text {
+        font-size: 20px;
+    }
+
+    .footer-cta-button {
+        padding: 14px 35px;
+        font-size: 16px;
     }
 
     .footer-bottom {
@@ -232,70 +238,83 @@
         align-items: center;
         gap: 20px;
         font-size: 16px;
-        /* Reduce el tamaño de fuente */
     }
 
     .footer-bottom-right {
         gap: 30px;
-        /* Reduce el espacio entre enlaces */
     }
 }
 
 /* Responsividad para pantallas pequeñas (móviles) */
 @media(max-width: 480px) {
     .footer {
-        margin: 30px 15px;
-        /* Márgenes más pequeños para móviles */
+        padding: 0 20px;
+        margin: 30px auto;
+        gap: 20px;
+    }
+
+    .footer-tech-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .footer-logo-loop {
+        padding: 20px 0;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+
+    .footer-logo-loop::before,
+    .footer-logo-loop::after {
+        width: 50px;
+    }
+
+    .footer-logo-track {
+        gap: 40px;
+    }
+
+    .footer-logo-item {
+        min-width: 100px;
+        padding: 12px 20px;
+        gap: 8px;
+    }
+
+    .footer-logo-icon {
+        font-size: 36px;
+    }
+
+    .footer-logo-name {
+        font-size: 12px;
+    }
+
+    .footer-cta-section {
         gap: 15px;
     }
 
-    .footer-top {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .footer-top-left p {
-        font-size: 16px;
-        /* Reduce aún más el tamaño de fuente */
+    .footer-cta-text {
+        font-size: 18px;
         text-align: center;
-        /* Centra el texto */
+        padding: 0 10px;
     }
 
-    .footer-top-right {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .footer-email-input {
-        padding: 10px 15px;
-        /* Ajusta el padding */
-        padding-right: 10px;
-        width: 100%;
-        /* Asegura que ocupe todo el ancho */
-    }
-
-    .footer-subscribe {
-        font-size: 16px;
-        /* Reduce el tamaño del botón */
-        padding: 10px 20px;
-        width: 100%;
-        /* Asegura que el botón ocupe todo el ancho */
-        text-align: center;
+    .footer-cta-button {
+        padding: 12px 30px;
+        font-size: 15px;
+        gap: 8px;
     }
 
     .footer-bottom {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
         font-size: 14px;
-        /* Reduce el tamaño de fuente */
+        text-align: center;
     }
 
     .footer-bottom-right {
         flex-direction: column;
-        gap: 10px;
-        /* Reduce el espacio entre enlaces */
+        gap: 15px;
+        text-align: center;
     }
 }
 
