@@ -155,12 +155,11 @@
 
 @media(max-width: 820px) {
     .navbar-glass {
-        width: calc(100% - 60px);
-        border-radius: 30px !important;
+        display: none;
     }
 
     .navbar {
-        padding: 10px 15px;
+        display: none;
     }
 
     .nav-connect {
@@ -170,9 +169,28 @@
     .nav-mob-open {
         display: block;
         position: fixed;
-        right: 40px;
-        top: 28px;
+        right: 30px;
+        top: 30px;
         z-index: 1101;
+        background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 4px 20px rgba(180, 21, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .nav-mob-open:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(180, 21, 255, 0.6);
+    }
+
+    .nav-mob-open img {
+        display: block;
+        width: 28px;
+        height: 28px;
+        filter: brightness(0) invert(1);
     }
 
     .nav-mob-close {
@@ -232,18 +250,22 @@
 
 @media(max-width: 480px) {
     .navbar-glass {
-        width: calc(100% - 40px);
-        top: 15px;
-        border-radius: 25px !important;
+        display: none;
     }
 
     .navbar {
-        padding: 8px 12px;
+        display: none;
     }
 
     .nav-mob-open {
-        right: 28px;
-        top: 23px;
+        right: 20px;
+        top: 20px;
+        padding: 10px;
+    }
+
+    .nav-mob-open img {
+        width: 24px;
+        height: 24px;
     }
 
     .nav-menu {
