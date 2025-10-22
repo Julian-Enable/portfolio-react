@@ -199,11 +199,14 @@
 
 @media(max-width: 820px) {
     .navbar-glass {
-        display: none;
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .navbar {
-        display: none;
+        display: none !important;
     }
 
     .nav-connect {
@@ -310,11 +313,14 @@
 
 @media(max-width: 480px) {
     .navbar-glass {
-        display: none;
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .navbar {
-        display: none;
+        display: none !important;
     }
 
     .nav-mob-open {
