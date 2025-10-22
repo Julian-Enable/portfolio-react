@@ -290,8 +290,8 @@
     }
 
     .mywork-cardswap-wrapper {
-        height: 350px;
-        padding-top: 30px;
+        height: 280px;
+        padding-top: 20px;
     }
 
     .mywork-showmore {
@@ -329,7 +329,7 @@
 
     .mywork-content-wrapper {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         padding: 0;
     }
 
@@ -339,26 +339,26 @@
     }
 
     .description-content h2 {
-        font-size: 32px;
-        margin-bottom: 16px;
+        font-size: 28px;
+        margin-bottom: 12px;
     }
 
     .description-content p {
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 24px;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
     }
 
     .description-content .project-link {
-        padding: 12px 28px;
-        font-size: 15px;
+        padding: 10px 24px;
+        font-size: 14px;
         margin: 0 auto;
     }
 
     .mywork-cardswap-wrapper {
-        height: 280px;
+        height: 200px;
         width: 100%;
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
     .project-card-content {
@@ -367,8 +367,13 @@
     }
 
     .mywork-showmore {
-        font-size: 16px;
-        padding: 16px 32px;
-        margin-bottom: 40px;
+        font-size: 14px;
+        padding: 14px 28px;
+        margin-bottom: 30px;
+        gap: 10px;
+    }
+
+    .mywork-showmore:hover {
+        gap: 15px;
     }
 }
