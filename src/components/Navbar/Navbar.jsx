@@ -57,16 +57,16 @@ const Navbar = () => {
       height="80"
       borderRadius={50}
       className="navbar-glass"
-      displace={10}
+      displace={0}
       distortionScale={-150}
-      brightness={15}
-      opacity={0.25}
-      backgroundOpacity={0.15}
-      saturation={1.5}
-      blur={15}
-      redOffset={5}
-      greenOffset={12}
-      blueOffset={20}
+      brightness={50}
+      opacity={0.95}
+      backgroundOpacity={0.02}
+      saturation={1.8}
+      blur={20}
+      redOffset={0}
+      greenOffset={0}
+      blueOffset={0}
     >
       <div className='navbar'>
         <img src={logo} alt="Logo" />
