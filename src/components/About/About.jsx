@@ -1,7 +1,7 @@
 import './About.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
 import code_pattern from '../../assets/code_pattern.svg'
-import profile_img from '../../assets/Profile photo.png'
+import profile_img from '../../assets/profile_photo.png'
 import ProfileCard from '../ProfileCard/ProfileCard'
 
 const About = () => {
