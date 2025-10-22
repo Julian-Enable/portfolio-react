@@ -26,11 +26,18 @@
 }
 
 .hero h1 span {
-    background: linear-gradient(120deg, #B415FF 0%, #C94BF5 35%, #DF8908 85%, #FFC857 100%);
+    background: linear-gradient(120deg, #B415FF 0%, #C94BF5 25%, #DF8908 50%, #FFC857 75%, #B415FF 100%);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 8px rgba(180, 21, 255, 0.18), 0 4px 16px rgba(223, 137, 8, 0.15);
+    animation: gradient-flow 8s ease infinite;
+    display: inline-block;
+}
+
+@keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .hero p {
@@ -67,11 +74,38 @@
     padding: 25px 45px;
     border-radius: 999px;
     background: var(--brand-grad);
+    background-size: 200% auto;
     cursor: pointer;
     border: none;
     outline: none;
     box-shadow: var(--btn-shadow);
-    transition: transform 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-connect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.hero-connect:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.hero-connect:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--btn-shadow-hover);
+    background-position: right center;
 }
 
 .hero-resumen {
@@ -79,20 +113,18 @@
     border-radius: 999px;
     border: 1.5px solid var(--btn-border-glass);
     cursor: pointer;
-    backdrop-filter: saturate(150%) blur(6px);
-    -webkit-backdrop-filter: saturate(150%) blur(6px);
-    background: rgba(255,255,255,0.04);
-    transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.hero-connect:hover {
-    transform: translateY(-1px);
-    background: var(--brand-grad-soft);
+    backdrop-filter: saturate(150%) blur(8px);
+    -webkit-backdrop-filter: saturate(150%) blur(8px);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
 .hero-resumen:hover {
-    border-color: rgba(180, 21, 255, 0.6);
-    transform: translateY(-1px);
+    border-color: rgba(180, 21, 255, 0.8);
+    background: rgba(180, 21, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(180, 21, 255, 0.15);
 }
 
 /* Responsividad para pantallas medianas (tablets) */

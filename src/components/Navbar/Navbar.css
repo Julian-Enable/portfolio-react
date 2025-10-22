@@ -6,14 +6,21 @@
     position: fixed;
     top: 0;
     width: calc(100% - 340px);
-    background: rgba(20, 20, 20, 0.45);
-    -webkit-backdrop-filter: saturate(160%) blur(12px);
-    backdrop-filter: saturate(160%) blur(12px);
+    background: rgba(20, 20, 20, 0.65);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 1000;
     padding: 10px 20px;
-    border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(20, 20, 20, 0.75);
+    border-color: rgba(180, 21, 255, 0.15);
 }
 
 .nav-menu {
@@ -48,17 +55,39 @@
     padding: 20px 40px;
     border-radius: 999px;
     background: var(--brand-grad);
+    background-size: 200% auto;
     font-size: 22px;
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     outline: none;
     box-shadow: var(--btn-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-connect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.nav-connect:hover::after {
+    width: 200px;
+    height: 200px;
 }
 
 .nav-connect:hover {
-    transform: translateY(-1px);
-    background: var(--brand-grad-soft);
+    transform: translateY(-2px);
+    box-shadow: var(--btn-shadow-hover);
+    background-position: right center;
 }
 
 .anchor-link {

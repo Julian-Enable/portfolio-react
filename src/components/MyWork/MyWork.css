@@ -38,23 +38,43 @@
     display: flex;
     flex-direction: column;
     background: #181716;
-    border: 2px solid #fff;
+    border: 2px solid #2a2a2a;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     min-height: 320px;
     position: relative;
 }
 
+.mywork-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, transparent, rgba(180, 21, 255, 0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
 .mywork-card:focus, .mywork-card:hover {
-    transform: translateY(-4px) scale(1.025);
-    border-color: #ff00ff;
-    box-shadow: 0 4px 24px 0 rgba(255,0,255,0.10);
+    transform: translateY(-8px);
+    border-color: rgba(180, 21, 255, 0.4);
+    box-shadow: 0 12px 32px 0 rgba(180, 21, 255, 0.15), 
+                0 0 0 1px rgba(180, 21, 255, 0.1);
     outline: none;
     z-index: 2;
+}
+
+.mywork-card:hover::before {
+    opacity: 1;
 }
 
 .mywork-img-wrapper {

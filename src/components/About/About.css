@@ -72,16 +72,50 @@
 .skill-bar {
     width: 50%;
     height: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 50px;
     overflow: hidden;
+    position: relative;
+}
+
+.skill-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .skill-fill {
     height: 100%;
     border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 0 10px rgba(180, 21, 255, 0.3);
+}
+
+.skill-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    filter: blur(8px);
 }
 
 .about-archivements {
