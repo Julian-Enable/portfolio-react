@@ -1,4 +1,3 @@
-import React from 'react'
 import './About.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
 import profile_img from '../../assets/about_profile.svg'
@@ -16,38 +15,38 @@ const About = () => {
                 </div>
                 <div className="about-right">
                     <div className="about-para">
-                        <p>Soy Desarrollador de Software con experiencia construyendo productos web y automatizaciones. Me enfoco en soluciones mantenibles, accesibles y orientadas a negocio.</p>
-                        <p>Trabajo con JavaScript/TypeScript, React, Node.js y Python; HTML/CSS (Flexbox/Grid), consumo de APIs REST, control de versiones con Git y herramientas modernas como Vite. Disfruto colaborar con diseño/UX y priorizo performance y calidad.</p>
+                        <p>Soy Desarrollador de Software Full-Stack especializado en desarrollo web moderno e integración con IA. Construyo soluciones end-to-end con React, Node.js y Python, incorporando inteligencia artificial para automatización y mejora de la experiencia del usuario.</p>
+                        <p>Trabajo con JavaScript/TypeScript, React/Next.js, Node.js/Express, Python y APIs de IA (OpenAI, Claude). Me especializo en crear aplicaciones escalables, APIs REST/GraphQL, automatizaciones inteligentes y optimización de performance (Core Web Vitals, SEO).</p>
                     </div>
                     <div className="about-skills">
                         <div className="about-skill">
-                            <p>JavaScript / TypeScript</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "85%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>React / Node.js</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "75%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>Python / Automatización</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "60%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>HTML5 / CSS3</p>
+                            <p>React / Next.js / TypeScript</p>
                             <div className="skill-bar">
                                 <div className="skill-fill" style={{ width: "90%" }}></div>
                             </div>
                         </div>
                         <div className="about-skill">
-                            <p>Accesibilidad / Performance</p>
+                            <p>Node.js / APIs REST</p>
                             <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "70%" }}></div>
+                                <div className="skill-fill" style={{ width: "85%" }}></div>
+                            </div>
+                        </div>
+                        <div className="about-skill">
+                            <p>IA / OpenAI / Automatización</p>
+                            <div className="skill-bar">
+                                <div className="skill-fill" style={{ width: "80%" }}></div>
+                            </div>
+                        </div>
+                        <div className="about-skill">
+                            <p>Python / Machine Learning</p>
+                            <div className="skill-bar">
+                                <div className="skill-fill" style={{ width: "75%" }}></div>
+                            </div>
+                        </div>
+                        <div className="about-skill">
+                            <p>Performance / SEO / PWA</p>
+                            <div className="skill-bar">
+                                <div className="skill-fill" style={{ width: "85%" }}></div>
                             </div>
                         </div>
                     </div>

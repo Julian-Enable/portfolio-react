@@ -1,4 +1,3 @@
-import React from 'react'
 import './Highlights.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
 
@@ -11,30 +10,30 @@ const Highlights = () => {
       </div>
       <div className="highlights-grid">
         <article className='highlight-card'>
-          <div className='highlight-header'>⚡ Rendimiento</div>
-          <p>Interfaces rápidas y ligeras. Foco en Core Web Vitals, optimización de assets y patrones de renderizado.</p>
+          <div className='highlight-header'>🤖 Integración con IA</div>
+          <p>Implemento chatbots, asistentes virtuales y automatización inteligente usando APIs de OpenAI, Claude y modelos de lenguaje avanzados.</p>
           <ul>
-            <li>Mejoras medibles con Lighthouse</li>
-            <li>Optimización de imágenes y bundle</li>
-            <li>Accesibilidad que suma SEO</li>
+            <li>ChatGPT, Claude API, Gemini</li>
+            <li>Procesamiento de lenguaje natural</li>
+            <li>Análisis de sentimientos y datos</li>
           </ul>
         </article>
         <article className='highlight-card'>
-          <div className='highlight-header'>🤖 Automatización</div>
-          <p>Scripts y pequeños servicios que ahorran tiempo: scraping, integraciones con APIs y tareas repetitivas.</p>
+          <div className='highlight-header'>⚡ Full-Stack Moderno</div>
+          <p>Desarrollo completo desde frontend hasta backend: React/Next.js, Node.js/Express, bases de datos y arquitecturas escalables y seguras.</p>
           <ul>
-            <li>Node.js y Python para tareas ETL</li>
-            <li>Integración con APIs REST</li>
-            <li>Alertas y reportes automáticos</li>
+            <li>React, Next.js 14+, TypeScript</li>
+            <li>Node.js, Express, APIs REST/GraphQL</li>
+            <li>MongoDB, PostgreSQL, Prisma</li>
           </ul>
         </article>
         <article className='highlight-card'>
-          <div className='highlight-header'>🎨 UX clara</div>
-          <p>Diseños coherentes y accesibles. Microinteracciones sutiles que mejoran la experiencia sin distraer.</p>
+          <div className='highlight-header'>🚀 Performance & SEO</div>
+          <p>Optimización técnica para Core Web Vitals, SEO avanzado con SSR/SSG, PWAs y experiencias web ultrarrápidas.</p>
           <ul>
-            <li>Componentes reutilizables</li>
-            <li>Mobile‑first y responsive</li>
-            <li>WAI‑ARIA y teclado</li>
+            <li>Lighthouse 90+ scores</li>
+            <li>Next.js SSR/SSG, ISR</li>
+            <li>PWA, Service Workers, Caching</li>
           </ul>
         </article>
       </div>

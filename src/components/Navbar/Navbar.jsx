@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.svg';
 import underline from '../../assets/nav_underline.svg';

@@ -50,6 +50,22 @@
     transition: transform 0.2s ease, background 0.3s ease;
     flex-shrink: 0;
     box-shadow: var(--btn-shadow);
+    border: none;
+    color: white;
+    font-family: Outfit;
+    font-weight: 500;
+}
+
+.footer-subscribe:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.footer-subscribe-message {
+    color: #4ade80;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .footer-bottom {
@@ -62,6 +78,18 @@
     display: flex;
     gap: 50px;
     margin-bottom: 50px;
+}
+
+.footer-bottom-right a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-right a:hover,
+.footer-bottom-right a:focus {
+    color: #B415FF;
+    text-decoration: underline;
 }
 
 .footer-email-input:hover {

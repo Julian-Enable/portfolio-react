@@ -1,33 +1,33 @@
 const Services_Data = [
     {
         s_no:"01",
-        s_name:"Desarrollo Frontend (React)",
-        s_desc:"Construcción de interfaces modernas con React, Vite y componentes reutilizables. Código limpio, escalable y orientado a performance."
+        s_name:"Integración con IA (OpenAI, Claude)",
+        s_desc:"Implementación de chatbots inteligentes, asistentes virtuales y automatización con APIs de IA. Integración de GPT-4, Claude y modelos de lenguaje en aplicaciones web."
     },
     {
         s_no:"02",
-        s_name:"Integración con APIs",
-        s_desc:"Consumo e integración de APIs REST, manejo de estado y validaciones. Manejo de errores y UX de carga."
+        s_name:"Desarrollo Full-Stack (React + Node.js)",
+        s_desc:"Aplicaciones web completas con React/Next.js en frontend y Node.js/Express en backend. Bases de datos, autenticación JWT y arquitectura escalable."
     },
     {
         s_no:"03",
-        s_name:"Optimización y Accesibilidad",
-        s_desc:"Mejoras de rendimiento (Lighthouse/Core Web Vitals) y accesibilidad (WAI-ARIA), para productos más rápidos e inclusivos."
+        s_name:"Automatización con IA y Python",
+        s_desc:"Scripts inteligentes para web scraping, análisis de datos, procesamiento de documentos y tareas repetitivas usando Python, Selenium y bibliotecas de ML."
     },
     {
         s_no:"04",
-        s_name:"UI con CSS moderno",
-        s_desc:"Maquetación con Flexbox/Grid, animaciones sutiles y diseño responsivo mobile-first."
+        s_name:"Apps Web Modernas (SPA/PWA)",
+        s_desc:"Single Page Applications con React, Vue o Next.js. Progressive Web Apps con funcionalidad offline, notificaciones push y experiencia nativa."
     },
     {
         s_no:"05",
-        s_name:"Mejora de Código",
-        s_desc:"Estandarización de estilos, ESLint, organización de componentes y buenas prácticas para equipos."
+        s_name:"APIs REST y GraphQL",
+        s_desc:"Diseño e implementación de APIs RESTful y GraphQL. Documentación con Swagger, autenticación OAuth2, rate limiting y mejores prácticas de seguridad."
     },
     {
         s_no:"06",
-        s_name:"Implementación de Formularios",
-        s_desc:"Formularios accesibles con validación, feedback de estado y protección antispam, integrados con servicios de envío."
+        s_name:"Optimización SEO y Performance",
+        s_desc:"Mejoras de Core Web Vitals, SEO técnico, SSR/SSG con Next.js, lazy loading y optimización de assets para alcanzar 90+ en Lighthouse."
     },
 ]
  
