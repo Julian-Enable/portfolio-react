@@ -53,7 +53,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(223, 137, 8, 0.1), rgba(201, 75, 245, 0.1));
+    background: linear-gradient(135deg, rgba(223, 137, 8, 0.05), rgba(201, 75, 245, 0.05));
     border-radius: 50px;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -63,7 +63,7 @@
     opacity: 1;
 }
 
-/* Indicador activo - Píldora con gradiente animado y borde luminoso */
+/* Indicador activo - Sutil y translúcido */
 .nav-active-underline {
     display: none;
 }
@@ -74,32 +74,24 @@
 
 .nav-menu li:has(.nav-active-underline) .anchor-link {
     background: linear-gradient(135deg, 
-        rgba(223, 137, 8, 0.2) 0%, 
-        rgba(201, 75, 245, 0.2) 50%,
-        rgba(180, 21, 255, 0.2) 100%);
+        rgba(223, 137, 8, 0.08) 0%, 
+        rgba(201, 75, 245, 0.08) 50%,
+        rgba(180, 21, 255, 0.08) 100%);
     background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
+    animation: gradientShift 4s ease infinite;
     color: #ffffff;
-    font-weight: 600;
-    border: 1.5px solid rgba(223, 137, 8, 0.5);
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 
-        0 0 20px rgba(223, 137, 8, 0.4),
-        0 0 40px rgba(201, 75, 245, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
+        0 0 15px rgba(223, 137, 8, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .nav-menu li:has(.nav-active-underline) .anchor-link::after {
-    content: '';
-    position: absolute;
-    left: -2px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 60%;
-    background: linear-gradient(180deg, #DF8908, #C94BF5, #B415FF);
-    border-radius: 0 4px 4px 0;
-    box-shadow: 0 0 10px rgba(223, 137, 8, 0.6);
+    display: none;
 }
 
 @keyframes gradientShift {
@@ -297,13 +289,15 @@
     /* Indicador activo en menú móvil */
     .nav-menu li:has(.nav-active-underline) .anchor-link {
         background: linear-gradient(90deg, 
-            rgba(223, 137, 8, 0.25) 0%, 
-            rgba(201, 75, 245, 0.15) 100%);
-        border-left: 4px solid #DF8908;
-        padding-left: 26px;
+            rgba(223, 137, 8, 0.12) 0%, 
+            rgba(201, 75, 245, 0.08) 100%);
+        border-left: 3px solid rgba(223, 137, 8, 0.6);
+        padding-left: 27px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         box-shadow: 
-            0 0 20px rgba(223, 137, 8, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            0 0 15px rgba(223, 137, 8, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .nav-menu li:has(.nav-active-underline) .anchor-link::after {
