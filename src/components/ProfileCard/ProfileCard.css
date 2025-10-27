@@ -250,7 +250,16 @@
     100% 100%;
   mix-blend-mode: difference;
   filter: brightness(0.8) contrast(1.5);
-  opacity: 0.15; /* faint but visible fallback */
+  /* keep hidden by default; enable only when mask is not supported */
+  opacity: 0;
+}
+
+/* If the browser does NOT support masks (standard or WebKit), enable the
+   faint SVG fallback so the pattern is visible (covers older iOS Safari). */
+@supports not (mask-image: none) and not (-webkit-mask-image: none) {
+  .pc-shine::after {
+    opacity: 0.15;
+  }
 }
 
 .pc-glare {
