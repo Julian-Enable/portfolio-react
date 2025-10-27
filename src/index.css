@@ -9,7 +9,8 @@
 
 html {
   scroll-padding-top: 80px;
-  /* Optimización para scroll suave sin jank */
+  /* Smooth scroll nativo de CSS - ligero y compatible */
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -33,7 +34,7 @@ html.lenis {
   pointer-events: none;
 }
 
-/* Performance optimizations para evitar jank durante scroll */
+/* Performance optimizations para scroll suave */
 * {
   /* Forzar aceleración por hardware para animaciones suaves */
   -webkit-font-smoothing: antialiased;
@@ -44,6 +45,19 @@ html.lenis {
 img, video, iframe {
   will-change: auto;
   content-visibility: auto;
+}
+
+/* Scroll suave y fluido en todo el documento */
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* Mejorar el scroll en navegadores webkit (Chrome, Safari, Edge) */
+@supports (scrollbar-width: auto) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #C94BF5 #1a1a1a;
+  }
 }
 
 /* Custom scrollbar */

@@ -1,5 +1,4 @@
-import { useEffect, lazy, Suspense } from 'react'
-import Lenis from 'lenis'
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 
@@ -12,39 +11,8 @@ const Contact = lazy(() => import('./components/Contact/Contact'))
 const Footer = lazy(() => import('./components/Footer/Footer'))
 
 const App = () => {
-  // TEMPORALMENTE DESACTIVADO - Scroll nativo hasta resolver el issue
-  // useEffect(() => {
-  //   // Inicializar Lenis para smooth scroll - balanceado
-  //   const lenis = new Lenis({
-  //     duration: 1.0,
-  //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  //     orientation: 'vertical',
-  //     gestureOrientation: 'vertical',
-  //     smoothWheel: true,
-  //     wheelMultiplier: 1.0, // Normal scroll speed
-  //     smoothTouch: false,
-  //     touchMultiplier: 2,
-  //     infinite: false,
-  //     autoResize: true,
-  //   })
-
-  //   // Usar requestAnimationFrame de forma más eficiente
-  //   let rafId
-  //   function raf(time) {
-  //     lenis.raf(time)
-  //     rafId = requestAnimationFrame(raf)
-  //   }
-
-  //   rafId = requestAnimationFrame(raf)
-
-  //   // Cleanup
-  //   return () => {
-  //     if (rafId) {
-  //       cancelAnimationFrame(rafId)
-  //     }
-  //     lenis.destroy()
-  //   }
-  // }, [])
+  // Usando scroll nativo de CSS (scroll-behavior: smooth) - más ligero y compatible
+  // Sin necesidad de librerías externas
 
   return (
     <div>
