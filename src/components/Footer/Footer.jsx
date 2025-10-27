@@ -6,19 +6,19 @@ import {
     FaPython,
     FaAws,
     FaGithub,
-    FaPaintBrush
+    FaPaintBrush,
+    FaJava
 } from 'react-icons/fa'
 import {
     SiJavascript,
     SiTypescript,
     SiHtml5,
     SiCss3,
-    SiJava,
     SiNextdotjs,
     SiVite,
-    SiVuejs,
+    SiVuedotjs,
     SiAngular,
-    SiMaterialui,
+    SiMui,
     SiExpress,
     SiPostgresql,
     SiMysql,
@@ -35,15 +35,15 @@ const Footer = () => {
         { node: <SiHtml5 size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'HTML' },
         { node: <SiCss3 size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'CSS' },
         { node: <FaPython size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Python' },
-        { node: <SiJava size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Java' },
+        { node: <FaJava size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Java' },
 
         // Frontend / UI
         { node: <FaReact size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'React' },
         { node: <SiNextdotjs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Next.js' },
         { node: <SiVite size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Vite' },
-        { node: <SiVuejs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Vue' },
+        { node: <SiVuedotjs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Vue' },
         { node: <SiAngular size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Angular' },
-        { node: <SiMaterialui size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Material UI' },
+        { node: <SiMui size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Material UI' },
         { node: <FaPaintBrush size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Canvas' },
 
         // Backend / Databases
