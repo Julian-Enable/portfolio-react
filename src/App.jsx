@@ -8,6 +8,7 @@ import MyWork from './components/MyWork/MyWork'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import Highlights from './components/Highlights/Highlights'
+import MobileNotice from './components/MobileNotice/MobileNotice'
 
 const App = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const App = () => {
 
   return (
     <div>
+      <MobileNotice />
       <Navbar/>
       <Hero/>
       <About/>
