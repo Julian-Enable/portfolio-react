@@ -10,7 +10,15 @@
 html {
   scroll-padding-top: 80px;
   overflow-x: hidden;
-  /* scroll-behavior manejado por JS para mejor control del momentum */
+  /* Scroll suave nativo de CSS */
+  scroll-behavior: smooth;
+}
+
+/* Opcional: Para navegadores que soportan scroll-snap para un efecto más suave */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 html.lenis {
@@ -44,12 +52,6 @@ html.lenis {
 img, video, iframe {
   will-change: auto;
   content-visibility: auto;
-}
-
-/* Smooth scroll con GPU acceleration */
-body {
-  will-change: transform;
-  transform: translateZ(0);
 }
 
 /* Mejorar el scroll en navegadores webkit (Chrome, Safari, Edge) */

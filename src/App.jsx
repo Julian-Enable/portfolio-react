@@ -1,7 +1,6 @@
-import { useEffect, lazy, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
-import SmoothScroll from './utils/smoothScroll'
 
 // Lazy load components below the fold
 const About = lazy(() => import('./components/About/About'))
@@ -12,14 +11,7 @@ const Contact = lazy(() => import('./components/Contact/Contact'))
 const Footer = lazy(() => import('./components/Footer/Footer'))
 
 const App = () => {
-  useEffect(() => {
-    // Inicializar smooth scroll custom con momentum/inercia
-    const smoothScroll = new SmoothScroll()
-    
-    return () => {
-      smoothScroll.destroy()
-    }
-  }, [])
+  // Usando scroll nativo de CSS - simple y funcional
 
   return (
     <div>
