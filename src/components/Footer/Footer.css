@@ -23,11 +23,32 @@
 .footer-tech-title {
     font-size: 32px;
     font-weight: 700;
-    background: linear-gradient(135deg, #FFC857 0%, #C94BF5 50%, #B415FF 100%);
+    background: linear-gradient(
+        90deg,
+        #FFC857 0%,
+        #DF8908 15%,
+        #C94BF5 30%,
+        #B415FF 45%,
+        #FFC857 60%,
+        #DF8908 75%,
+        #C94BF5 90%,
+        #B415FF 100%
+    );
+    background-size: 200% auto;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
     margin-bottom: 40px;
+    animation: gradient-flow 4s linear infinite;
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .footer-logo-loop {
