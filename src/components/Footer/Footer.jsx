@@ -87,7 +87,7 @@ const Footer = () => {
             <nav className="footer-bottom-right" aria-label="Enlaces legales y sociales">
                 <a href="#contact" aria-label="Ir a la sección de contacto">Contacto</a>
                 <a href="https://github.com/Julian-Enable" target="_blank" rel="noopener noreferrer" aria-label="Visita mi perfil de GitHub">GitHub</a>
-                <a href="https://www.linkedin.com/in/julian-enable/" target="_blank" rel="noopener noreferrer" aria-label="Conéctate conmigo en LinkedIn">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/julian-gonzalez-46ba5524a/" target="_blank" rel="noopener noreferrer" aria-label="Conéctate conmigo en LinkedIn">LinkedIn</a>
             </nav>
         </div>
     </div>
