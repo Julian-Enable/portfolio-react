@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './MobileNotice.css';
-import monitorUrl from '../../assets/monitor_mockup.svg';
 import BlurText from '../BlurText/BlurText';
 
 const MobileNotice = ({ breakpoint = 480 }) => {
@@ -86,15 +85,7 @@ const MobileNotice = ({ breakpoint = 480 }) => {
           <p className="mn-sub">Para una experiencia completa y visualmente óptima, visita este sitio desde tu PC de escritorio.</p>
         </header>
 
-        <main className="mn-main">
-          <div className="mn-visual">
-            <div className="mn-glow" />
-            <div className="mn-frame" aria-hidden>
-              {/* Monitor SVG */}
-              <img src={monitorUrl} alt="Monitor mockup" className="mn-monitor" />
-            </div>
-          </div>
-        </main>
+        {/* no visual artwork on mobile notice per user request */}
 
         <footer className="mn-footer">
           <div className="mn-actions">
