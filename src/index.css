@@ -9,6 +9,8 @@
 
 html {
   scroll-padding-top: 80px;
+  /* Optimización para scroll suave sin jank */
+  overflow-x: hidden;
 }
 
 html.lenis {
@@ -29,6 +31,19 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* Performance optimizations para evitar jank durante scroll */
+* {
+  /* Forzar aceleración por hardware para animaciones suaves */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimizar imágenes y contenido pesado durante scroll */
+img, video, iframe {
+  will-change: auto;
+  content-visibility: auto;
 }
 
 /* Custom scrollbar */

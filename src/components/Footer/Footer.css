@@ -40,6 +40,9 @@
     -webkit-background-clip: text;
     margin-bottom: 40px;
     animation: gradient-flow 4s linear infinite;
+    /* Optimización para GPU */
+    will-change: background-position;
+    transform: translateZ(0);
 }
 
 @keyframes gradient-flow {

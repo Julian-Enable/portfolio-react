@@ -13,29 +13,36 @@ const Footer = lazy(() => import('./components/Footer/Footer'))
 
 const App = () => {
   useEffect(() => {
-    // Inicializar Lenis para smooth scroll - optimizado
+    // Inicializar Lenis para smooth scroll - optimizado para evitar jank
     const lenis = new Lenis({
-      duration: 1.0, // Reducido de 1.2 para mejor performance
+      duration: 0.8, // Más rápido para menos jank
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false, // Desactivado para mejor performance en móviles
+      wheelMultiplier: 0.8, // Reducido para scroll más controlado
+      smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
-      autoResize: true, // Auto-resize optimization
+      autoResize: true,
+      syncTouch: true, // Mejor sincronización
+      touchInertiaMultiplier: 15, // Menos inercia
     })
 
+    // Usar requestAnimationFrame de forma más eficiente
+    let rafId
     function raf(time) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(raf)
     }
 
-    requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
     // Cleanup
     return () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId)
+      }
       lenis.destroy()
     }
   }, [])
@@ -44,12 +51,22 @@ const App = () => {
     <div>
       <Navbar/>
       <Hero/>
-      <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+      <Suspense fallback={<div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />}>
         <About/>
+      </Suspense>
+      <Suspense fallback={<div style={{ minHeight: '30vh' }} />}>
         <Highlights/>
+      </Suspense>
+      <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
         <Services/>
+      </Suspense>
+      <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
         <MyWork/>
+      </Suspense>
+      <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
         <Contact/>
+      </Suspense>
+      <Suspense fallback={<div style={{ minHeight: '30vh' }} />}>
         <Footer/>
       </Suspense>
     </div>
