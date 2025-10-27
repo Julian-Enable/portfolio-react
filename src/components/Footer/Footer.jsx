@@ -1,21 +1,64 @@
 import './Footer.css'
 import LogoLoop from '../LogoLoop/LogoLoop'
-import { FaReact, FaNodeJs, FaPython, FaDocker, FaAws } from 'react-icons/fa'
-import { SiTypescript, SiNextdotjs, SiMongodb, SiPostgresql, SiOpenai } from 'react-icons/si'
+import {
+    FaReact,
+    FaNodeJs,
+    FaPython,
+    FaAws,
+    FaGithub,
+    FaPaintBrush
+} from 'react-icons/fa'
+import {
+    SiJavascript,
+    SiTypescript,
+    SiHtml5,
+    SiCss3,
+    SiJava,
+    SiNextdotjs,
+    SiVite,
+    SiVuejs,
+    SiAngular,
+    SiMaterialui,
+    SiExpress,
+    SiPostgresql,
+    SiMysql,
+    SiFirebase,
+    SiGit,
+    SiOpenai
+} from 'react-icons/si'
 
 const Footer = () => {
-  const techLogos = [
-    { node: <FaReact size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'React' },
-    { node: <FaNodeJs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Node.js' },
-    { node: <SiTypescript size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'TypeScript' },
-    { node: <FaPython size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Python' },
-    { node: <SiNextdotjs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Next.js' },
-    { node: <SiOpenai size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'OpenAI' },
-    { node: <SiMongodb size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'MongoDB' },
-    { node: <SiPostgresql size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'PostgreSQL' },
-    { node: <FaDocker size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Docker' },
-    { node: <FaAws size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'AWS' }
-  ]
+    const techLogos = [
+        // Languages
+        { node: <SiJavascript size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'JavaScript' },
+        { node: <SiTypescript size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'TypeScript' },
+        { node: <SiHtml5 size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'HTML' },
+        { node: <SiCss3 size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'CSS' },
+        { node: <FaPython size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Python' },
+        { node: <SiJava size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Java' },
+
+        // Frontend / UI
+        { node: <FaReact size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'React' },
+        { node: <SiNextdotjs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Next.js' },
+        { node: <SiVite size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Vite' },
+        { node: <SiVuejs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Vue' },
+        { node: <SiAngular size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Angular' },
+        { node: <SiMaterialui size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Material UI' },
+        { node: <FaPaintBrush size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Canvas' },
+
+        // Backend / Databases
+        { node: <FaNodeJs size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Node.js' },
+        { node: <SiExpress size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Express' },
+        { node: <SiPostgresql size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'PostgreSQL' },
+        { node: <SiMysql size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'MySQL' },
+        { node: <SiFirebase size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Firebase' },
+
+        // Cloud / Tools
+        { node: <FaAws size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'AWS' },
+        { node: <SiGit size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'Git' },
+        { node: <FaGithub size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'GitHub' },
+        { node: <SiOpenai size={48} color="#FFFFFF" className="footer-tech-logo" />, title: 'OpenAI' }
+    ]
 
   return (
     <div className='footer'>
