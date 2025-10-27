@@ -233,33 +233,48 @@
 }
 
 .pc-shine::after {
-  /* Fallback: show the SVG asset as a faint background layer in case mask-image
-     is not applied (some iOS Safari versions). The low opacity keeps the
-     original holo effect on desktop while making the pattern visible on mobile. */
-  background-image: var(--icon);
-  background-position:
-    0 var(--background-y),
-    calc(var(--background-x) * 0.4) calc(var(--background-y) * 0.5),
-    center;
-  background-size:
-    cover,
-    200% 300%,
-    700% 700%,
-    100% 100%;
-  mix-blend-mode: difference;
-  filter: brightness(0.8) contrast(1.5);
-  /* keep hidden by default; enable only when mask is not supported */
-  opacity: 0;
+  /* Mobile fallback will use the SVG as a mask on this pseudo-element so the
+     holo/background shows THROUGH the icon shapes (holes). Default is
+     hidden; enabled only on small viewports via the media query below. */
+  background-image: var(--behind-gradient),
+    radial-gradient(100% 100% at 50% 50%, #B415FFff 1%, #DF890800 76%);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* Use mask (and WebKit-prefixed) on the pseudo-element so the background is
+     visible only where the SVG allows it (holes). */
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-mode: luminance;
+  -webkit-mask-repeat: repeat;
+  -webkit-mask-size: 150%;
+  -webkit-mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+
+  mask-image: var(--icon);
+  mask-mode: luminance;
+  mask-repeat: repeat;
+  mask-size: 150%;
+  mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+
+  mix-blend-mode: normal;
+  filter: none;
+  opacity: 0; /* enabled in mobile media query */
 }
 
 /* Apply the faint SVG fallback only on small viewports (mobile/tablet) so
    desktop appearance remains unchanged. Within that breakpoint, enable the
    fallback only when mask support is not available (older iOS Safari). */
 @media (max-width: 480px) {
-  /* On small viewports enable the faint fallback so mobile Safari shows the
-     pattern (avoid complex @supports expressions that some parsers reject). */
+  /* Enable the masked holo fallback on mobile: show the pseudo-element whose
+     background is masked by the SVG so the effect appears THROUGH the icons. */
   .pc-shine::after {
-    opacity: 0.15;
+    opacity: 1;
+  }
+  /* Also ensure hover/active states on mobile reveal the masked layer when
+     the card is active (some mobile browsers simulate :hover on tap). */
+  .pc-card.active .pc-shine::after,
+  .pc-card:active .pc-shine::after {
+    opacity: 1;
   }
 }
 
