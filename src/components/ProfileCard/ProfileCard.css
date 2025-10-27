@@ -189,6 +189,8 @@
   background-position: center;
   background-size: cover;
   grid-area: 1/1;
+  /* Default hidden; we may override opacity for a lightweight fallback below so
+     browsers that don't support masks still show the pattern faintly. */
   opacity: 0;
 }
 
@@ -233,16 +235,22 @@
 }
 
 .pc-shine::after {
+  /* Fallback: show the SVG asset as a faint background layer in case mask-image
+     is not applied (some iOS Safari versions). The low opacity keeps the
+     original holo effect on desktop while making the pattern visible on mobile. */
+  background-image: var(--icon);
   background-position:
     0 var(--background-y),
     calc(var(--background-x) * 0.4) calc(var(--background-y) * 0.5),
     center;
   background-size:
+    cover,
     200% 300%,
     700% 700%,
     100% 100%;
   mix-blend-mode: difference;
   filter: brightness(0.8) contrast(1.5);
+  opacity: 0.15; /* faint but visible fallback */
 }
 
 .pc-glare {
