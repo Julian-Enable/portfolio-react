@@ -13,11 +13,18 @@ class SmoothScroll {
   }
 
   init() {
-    // Deshabilitar scroll nativo
-    document.body.style.position = 'fixed'
-    document.body.style.top = '0'
-    document.body.style.left = '0'
-    document.body.style.right = '0'
+    // Crear wrapper para el contenido
+    const appElement = document.querySelector('#root')
+    if (!appElement) return
+    
+    // Configurar estilos para smooth scroll
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+    appElement.style.position = 'fixed'
+    appElement.style.top = '0'
+    appElement.style.left = '0'
+    appElement.style.width = '100%'
+    appElement.style.willChange = 'transform'
     
     // Escuchar eventos de scroll
     window.addEventListener('wheel', this.onWheel.bind(this), { passive: false })
@@ -66,7 +73,9 @@ class SmoothScroll {
   }
 
   getMaxScroll() {
-    return document.body.scrollHeight - window.innerHeight
+    const appElement = document.querySelector('#root')
+    if (!appElement) return 0
+    return appElement.scrollHeight - window.innerHeight
   }
 
   raf() {
@@ -87,8 +96,11 @@ class SmoothScroll {
     // Interpolación suave
     this.current += (this.target - this.current) * this.ease
     
-    // Aplicar transform
-    document.body.style.transform = `translateY(-${this.current}px)`
+    // Aplicar transform al contenedor principal
+    const appElement = document.querySelector('#root')
+    if (appElement) {
+      appElement.style.transform = `translate3d(0, -${this.current}px, 0)`
+    }
     
     // Continuar loop
     this.rafId = requestAnimationFrame(() => this.raf())
@@ -105,11 +117,18 @@ class SmoothScroll {
     window.removeEventListener('touchmove', this.onTouchMove)
     window.removeEventListener('touchend', this.onTouchEnd)
     
-    document.body.style.position = ''
-    document.body.style.top = ''
-    document.body.style.left = ''
-    document.body.style.right = ''
-    document.body.style.transform = ''
+    const appElement = document.querySelector('#root')
+    if (appElement) {
+      appElement.style.position = ''
+      appElement.style.top = ''
+      appElement.style.left = ''
+      appElement.style.width = ''
+      appElement.style.transform = ''
+      appElement.style.willChange = ''
+    }
+    
+    document.documentElement.style.overflow = ''
+    document.body.style.overflow = ''
   }
 }
 
