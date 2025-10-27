@@ -14,9 +14,18 @@
   <meta property="og:image" content="/vite.svg" />
   <meta name="twitter:image" content="/vite.svg" />
   <meta name="twitter:card" content="summary" />
+  
+  <!-- Preconnect to font providers for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Preload critical font with display=swap for better performance -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+  
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 </head>
 
 <body>
