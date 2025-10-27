@@ -201,9 +201,7 @@
 }
 
 .pc-card:hover .pc-shine::before,
-.pc-card.active .pc-shine::before,
-.pc-card:hover .pc-shine::after,
-.pc-card.active .pc-shine::after {
+.pc-card.active .pc-shine::before {
   opacity: 1;
 }
 
@@ -258,10 +256,10 @@
    desktop appearance remains unchanged. Within that breakpoint, enable the
    fallback only when mask support is not available (older iOS Safari). */
 @media (max-width: 480px) {
-  @supports not (mask-image: none) and not (-webkit-mask-image: none) {
-    .pc-shine::after {
-      opacity: 0.15;
-    }
+  /* On small viewports enable the faint fallback so mobile Safari shows the
+     pattern (avoid complex @supports expressions that some parsers reject). */
+  .pc-shine::after {
+    opacity: 0.15;
   }
 }
 
