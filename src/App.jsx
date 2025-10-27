@@ -13,20 +13,18 @@ const Footer = lazy(() => import('./components/Footer/Footer'))
 
 const App = () => {
   useEffect(() => {
-    // Inicializar Lenis para smooth scroll - optimizado para evitar jank
+    // Inicializar Lenis para smooth scroll - balanceado
     const lenis = new Lenis({
-      duration: 0.8, // Más rápido para menos jank
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.8, // Reducido para scroll más controlado
+      wheelMultiplier: 1.0, // Normal scroll speed
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
       autoResize: true,
-      syncTouch: true, // Mejor sincronización
-      touchInertiaMultiplier: 15, // Menos inercia
     })
 
     // Usar requestAnimationFrame de forma más eficiente
