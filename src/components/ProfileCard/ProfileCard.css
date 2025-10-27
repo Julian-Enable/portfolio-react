@@ -116,11 +116,19 @@
 }
 
 .pc-shine {
+  /* Use both standard and WebKit-prefixed mask properties for broad support (iOS Safari) */
   mask-image: var(--icon);
   mask-mode: luminance;
   mask-repeat: repeat;
   mask-size: 150%;
   mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+
+  /* WebKit fallbacks for Safari / iOS */
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-mode: luminance;
+  -webkit-mask-repeat: repeat;
+  -webkit-mask-size: 150%;
+  -webkit-mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   transition: filter 0.6s ease;
   filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
   animation: holo-bg 18s linear infinite;
