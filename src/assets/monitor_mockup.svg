@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple, lightweight monitor SVG mockup for MobileNotice -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="84" viewBox="0 0 120 84" fill="none" role="img" aria-label="Monitor mockup">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#2b2b2f" />
+      <stop offset="100%" stop-color="#151417" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#091018" />
+      <stop offset="100%" stop-color="#0b1a22" />
+    </linearGradient>
+  </defs>
+
+  <!-- Bezel -->
+  <rect x="6" y="6" width="108" height="64" rx="6" fill="url(#g1)" stroke="rgba(255,255,255,0.04)" />
+
+  <!-- Screen area -->
+  <rect x="12" y="12" width="96" height="48" rx="4" fill="url(#screenGrad)" />
+
+  <!-- subtle inner content: dot-grid to suggest content -->
+  <g opacity="0.16" fill="#9BE7FF">
+    <circle cx="28" cy="26" r="0.9" />
+    <circle cx="36" cy="26" r="0.9" />
+    <circle cx="44" cy="26" r="0.9" />
+    <circle cx="52" cy="26" r="0.9" />
+    <circle cx="60" cy="26" r="0.9" />
+    <circle cx="68" cy="26" r="0.9" />
+    <circle cx="76" cy="26" r="0.9" />
+    <circle cx="84" cy="26" r="0.9" />
+    <circle cx="92" cy="26" r="0.9" />
+
+    <circle cx="28" cy="34" r="0.9" />
+    <circle cx="36" cy="34" r="0.9" />
+    <circle cx="44" cy="34" r="0.9" />
+    <circle cx="52" cy="34" r="0.9" />
+    <circle cx="60" cy="34" r="0.9" />
+    <circle cx="68" cy="34" r="0.9" />
+    <circle cx="76" cy="34" r="0.9" />
+    <circle cx="84" cy="34" r="0.9" />
+    <circle cx="92" cy="34" r="0.9" />
+  </g>
+
+  <!-- Stand -->
+  <rect x="52" y="72" width="16" height="4" rx="1" fill="#222" />
+  <rect x="46" y="76" width="28" height="2" rx="1" fill="#111" />
+</svg>

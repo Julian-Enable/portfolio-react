@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './MobileNotice.css';
+import monitorUrl from '../../assets/monitor_mockup.svg';
 
 const MobileNotice = ({ breakpoint = 480 }) => {
   const [show, setShow] = useState(false);
@@ -83,8 +84,9 @@ const MobileNotice = ({ breakpoint = 480 }) => {
         <main className="mn-main">
           <div className="mn-visual">
             <div className="mn-glow" />
-            <div className="mn-frame">
-              <div className="mn-dots" />
+            <div className="mn-frame" aria-hidden>
+              {/* Monitor SVG */}
+              <img src={monitorUrl} alt="Monitor mockup" className="mn-monitor" />
             </div>
           </div>
         </main>
