@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './MobileNotice.css';
 import monitorUrl from '../../assets/monitor_mockup.svg';
+import BlurText from '../BlurText/BlurText';
 
 const MobileNotice = ({ breakpoint = 480 }) => {
   const [show, setShow] = useState(false);
@@ -74,9 +75,13 @@ const MobileNotice = ({ breakpoint = 480 }) => {
       <div className="mobile-notice-card fullpage">
         <header className="mn-top">
           <div className="mn-title" aria-hidden>
-            {title.split('').map((ch, i) => (
-              <span key={i} className={`mn-letter ${ch === ' ' ? 'mn-space' : ''}`}>{ch}</span>
-            ))}
+            <BlurText
+              text={title}
+              delay={80}
+              animateBy="letters"
+              direction="top"
+              className="mn-title-blur"
+            />
           </div>
           <p className="mn-sub">Para una experiencia completa y visualmente óptima, visita este sitio desde tu PC de escritorio.</p>
         </header>

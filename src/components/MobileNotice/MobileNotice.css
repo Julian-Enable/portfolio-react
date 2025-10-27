@@ -34,8 +34,9 @@
 .mn-title { display:flex; gap:6px; justify-content:center; align-items:center; flex-wrap:wrap; }
 .mn-sub { margin: 6px 0 0 0; color: rgba(255,255,255,0.9); max-width: 88vw; font-size: 0.98rem }
 
-/* Animated big letters */
-.mn-letter {
+/* Styling for BlurText spans */
+.mn-title-blur { display:flex; gap:6px; justify-content:center; align-items:center; flex-wrap:wrap; }
+.mn-title-blur .inline-block {
   display: inline-block;
   font-weight: 900;
   font-size: clamp(2rem, 9vw, 4.4rem);
@@ -45,9 +46,9 @@
   -webkit-background-clip: text;
   background-clip: text;
   transform-origin: 50% 50%;
-  animation: mn-bounce 1200ms ease forwards;
 }
-.mn-space { width: 0.4ch }
+
+.mn-title-blur .mn-space { width: 0.4ch }
 
 @keyframes mn-bounce {
   0% { transform: translateY(-30px) rotate(-8deg); opacity: 0 }
