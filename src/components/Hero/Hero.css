@@ -1,3 +1,15 @@
+/* === VARIABLES GLOBALES === */
+:root {
+    --brand-grad: linear-gradient(120deg, #B415FF 0%, #C94BF5 25%, #DF8908 50%, #FFC857 75%, #B415FF 100%);
+    --btn-shadow: 0 8px 24px rgba(180, 21, 255, 0.18);
+    --btn-shadow-hover: 0 16px 40px rgba(180, 21, 255, 0.26);
+    --font-main: 'Outfit', 'Inter', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+}
+
 .hero {
     display: flex;
     align-items: center;
@@ -26,18 +38,21 @@
 }
 
 .hero h1 span {
-    background: linear-gradient(120deg, #B415FF 0%, #C94BF5 25%, #DF8908 50%, #FFC857 75%, #B415FF 100%);
-    background-size: 200% auto;
+    background: linear-gradient(120deg, #B415FF 0%, #B766F7 15%, #C94BF5 32%, #DF8908 66%, #FFA726 80%, #FFC857 90%, #B415FF 100%);
+    background-size: 400% auto; /* más difusa para blending */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-flow 8s ease infinite;
+    animation: gradient-flow 11s linear infinite;
     display: inline-block;
+    transition: background-position 0.7s cubic-bezier(.42,0,.58,1);
 }
 
 @keyframes gradient-flow {
-    0%, 100% { background-position: 0% 50%; }
+    0%, 100% { background-position: 5% 50%; }
+    35% { background-position: 80% 50%; }
     50% { background-position: 100% 50%; }
+    65% { background-position: 15% 50%; }
 }
 
 .hero p {

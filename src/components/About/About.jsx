@@ -3,6 +3,47 @@ import theme_pattern from '../../assets/theme_pattern.svg'
 import code_pattern from '../../assets/code_pattern.svg'
 import profile_img from '../../assets/profile_photo.png'
 import ProfileCard from '../ProfileCard/ProfileCard'
+import { useState, useEffect } from 'react'
+
+const SKILLS = [
+  { label: 'Frontend Development', percent: 60 },
+  { label: 'Backend & APIs', percent: 70 },
+  { label: 'AI & Automation', percent: 55 },
+  { label: 'Data Science', percent: 35 },
+  { label: 'Performance & SEO', percent: 60 },
+]
+
+const SkillBar = ({ label, percent }) => {
+  const [progress, setProgress] = useState(0)
+  const [filled, setFilled] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgress(percent)
+    }, 450)
+    return () => clearTimeout(timer)
+  }, [percent])
+
+  useEffect(() => {
+    if (progress === percent) {
+      setFilled(true)
+    }
+  }, [progress, percent])
+
+  return (
+    <div className="about-skill">
+      <p>{label}</p>
+      <div className="skill-bar">
+        <div
+          className="skill-fill"
+          style={{ width: `${progress}%` }}
+          data-filled={filled}
+        >
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const About = () => {
     const handleContactClick = () => {
@@ -42,36 +83,9 @@ const About = () => {
                         <p>Mi enfoque combina desarrollo full-stack con automatización inteligente, creando soluciones escalables que impulsan resultados reales. Cada proyecto es una oportunidad para innovar y superar expectativas.</p>
                     </div>
                     <div className="about-skills">
-                        <div className="about-skill">
-                            <p>Frontend Development</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "60%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>Backend & APIs</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "70%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>AI & Automation</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "55%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>Data Science</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "35%" }}></div>
-                            </div>
-                        </div>
-                        <div className="about-skill">
-                            <p>Performance & SEO</p>
-                            <div className="skill-bar">
-                                <div className="skill-fill" style={{ width: "60%" }}></div>
-                            </div>
-                        </div>
+                      {SKILLS.map((skill) => (
+                        <SkillBar key={skill.label} label={skill.label} percent={skill.percent} />
+                      ))}
                     </div>
                 </div>
             </div>

@@ -99,10 +99,42 @@
         #B83FE8 75%,
         #B415FF 100%);
     background-size: 300% 100%;
-    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 1.5s cubic-bezier(0.28,1.1,0.38,1), filter 0.5s;
+    will-change: width, filter;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     position: relative;
     animation: gradient-flow 4s ease infinite;
     box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.skill-fill[data-filled="true"] {
+    animation: fill-bounce 0.55s cubic-bezier(.51,1.61,.44,.99);
+}
+
+@keyframes fill-bounce {
+  0% { transform: scaleX(1); }
+  75% { transform: scaleX(1.04); }
+  100% { transform: scaleX(1); }
+}
+
+.skill-percent {
+    position: absolute;
+    right: 12px;
+    top: 56%;
+    transform: translateY(-50%) scale(1);
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 4px #B415FF60) drop-shadow(0 2px 6px #fff8);
+    transition: opacity 0.85s 0.6s cubic-bezier(0.42,0,0.58,1);
+}
+
+.skill-fill[data-filled="true"] .skill-percent {
+    opacity: 1;
 }
 
 @keyframes gradient-flow {
@@ -130,6 +162,21 @@
     20% { opacity: 1; }
     80% { opacity: 1; }
     100% { left: 100%; opacity: 0; }
+}
+
+.skill-fill[data-filled="true"]::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 12px;
+    height: 22px;
+    border-radius: 9px;
+    background: radial-gradient(circle at 60% 45%, #fff7, #B415FF40 80%, transparent 100%);
+    box-shadow: 0 0 20px 2px #B415FF88,0 0 32px 12px #fff4;
+    transform: translateY(-50%);
+    z-index: 2;
 }
 
 .skill-fill::after {
@@ -163,10 +210,18 @@
 .about-archivement h1 {
     font-size: 60px;
     font-weight: 700;
-    background: linear-gradient(264deg, #DF8908 50.41%, #B415FF 90.25%);
+    background: linear-gradient(270deg, #FFC857, #DF8908, #C94BF5, #B415FF);
+    background-size: 400% 400%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradient-animation 4s linear infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .about-archivement p {

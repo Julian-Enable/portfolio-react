@@ -232,8 +232,9 @@
 .contact-submit {
     border: none;
     color: white;
-    border-radius: 14px;
+    border-radius: 50px;
     background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+    background-size: 200% auto;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
@@ -244,9 +245,7 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 4px 15px rgba(223, 137, 8, 0.4),
-        0 0 40px rgba(223, 137, 8, 0.2);
+    box-shadow: 0 4px 15px rgba(223, 137, 8, 0.4);
 }
 
 .contact-submit::before {
@@ -257,9 +256,9 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
     transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    transition: width 0.6s, height 0.6s;
 }
 
 .contact-submit:hover::before {
@@ -268,10 +267,9 @@
 }
 
 .contact-submit:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-        0 8px 25px rgba(223, 137, 8, 0.5),
-        0 0 60px rgba(223, 137, 8, 0.3);
+    transform: translateY(-2px);
+    background-position: right center;
+    box-shadow: 0 8px 24px rgba(180, 21, 255, 0.35);
 }
 
 .contact-submit:active {

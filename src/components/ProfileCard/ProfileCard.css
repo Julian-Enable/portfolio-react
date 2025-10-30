@@ -378,28 +378,47 @@
 }
 
 .pc-contact-btn {
-  border: 2px solid rgba(180, 21, 255, 0.5);
+  border: none;
   border-radius: 10px;
   padding: 8px 18px;
   font-size: 12px;
   font-weight: 700;
-  background: linear-gradient(135deg, rgba(223, 137, 8, 0.2) 0%, rgba(201, 75, 245, 0.2) 50%, rgba(180, 21, 255, 0.2) 100%);
+  background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+  background-size: 200% auto;
   color: #ffffff;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(180, 21, 255, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   flex-shrink: 0;
   align-self: center;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.pc-contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.pc-contact-btn:hover::before {
+  width: 200px;
+  height: 200px;
 }
 
 .pc-contact-btn:hover {
-  border-color: rgba(180, 21, 255, 0.8);
-  background: linear-gradient(135deg, rgba(223, 137, 8, 0.3) 0%, rgba(201, 75, 245, 0.3) 50%, rgba(180, 21, 255, 0.3) 100%);
   transform: translateY(-2px);
+  background-position: right center;
   box-shadow: 0 6px 20px rgba(180, 21, 255, 0.5);
 }
 
