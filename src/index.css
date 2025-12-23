@@ -10,6 +10,8 @@
 }
 
 html {
+  scroll-padding-top: 140px;
+  overflow-x: hidden;
   /* Scroll suave nativo de CSS */
   scroll-behavior: smooth;
 }
@@ -84,7 +86,7 @@ iframe {
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   background: #161513;
   color: white;
   font-family: 'outfit';

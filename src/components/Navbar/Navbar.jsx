@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.svg';
 import underline from '../../assets/nav_underline.svg';
@@ -6,21 +6,19 @@ import menu_open from '../../assets/menu_open.svg';
 import menu_close from '../../assets/menu_close.svg';
 import GlassSurface from '../GlassSurface/GlassSurface';
 
-const SECTIONS = ['home', 'about', 'services', 'work', 'contact'];
-
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isShrunk, setIsShrunk] = useState(false);
-  const isScrollingRef = useRef(false);
+  const navContainerRef = useRef(null);
+  const navRef = useRef(null);
 
-  const openMenu = useCallback(() => {
+  const openMenu = () => {
     setIsMenuOpen(true);
-  }, []);
+  }
 
-  const closeMenu = useCallback(() => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
-  }, []);
+  }
 
   // Bloquear scroll del body cuando el menú móvil está abierto
   useEffect(() => {
@@ -31,59 +29,30 @@ const Navbar = () => {
     }
   }, [isMenuOpen]);
 
-  // Efecto shrink al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
-      setIsShrunk(window.scrollY > 42);
+      if (!navContainerRef.current || !navRef.current) return;
+      if (window.scrollY > 42) {
+        navContainerRef.current.classList.add('shrunk');
+        navRef.current.classList.add('shrunk');
+      } else {
+        navContainerRef.current.classList.remove('shrunk');
+        navRef.current.classList.remove('shrunk');
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Intersection Observer para sincronizar menú activo con scroll
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
-    };
-
-    const handleIntersect = (entries) => {
-      if (isScrollingRef.current) return;
-
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setMenu(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-
-    SECTIONS.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id) => {
     const target = document.getElementById(id);
 
     if (target) {
-      isScrollingRef.current = true;
-      setMenu(id);
-
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-
-      // Reset flag después de la animación de scroll
-      setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 1000);
+      setMenu(id);
     }
   };
 
@@ -92,7 +61,7 @@ const Navbar = () => {
       width="100%"
       height="80"
       borderRadius={50}
-      className={`navbar-glass${isShrunk ? ' shrunk' : ''}`}
+      className="navbar-glass"
       displace={0}
       distortionScale={-150}
       brightness={50}
@@ -104,8 +73,8 @@ const Navbar = () => {
       greenOffset={0}
       blueOffset={0}
     >
-      <div className={`navbar${isShrunk ? ' shrunk' : ''}`}>
-        <img src={logo} alt="Logo" />
+      <div className='navbar' ref={navContainerRef}>
+        <img src={logo} alt="Logo" ref={navRef} />
         <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
           <img src={menu_open} alt="Abrir menú" />
         </button>
