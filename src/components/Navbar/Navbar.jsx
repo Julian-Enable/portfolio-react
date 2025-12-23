@@ -44,6 +44,42 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll Spy - detectar sección activa al hacer scroll
+  useEffect(() => {
+    const sections = ['home', 'about', 'services', 'work', 'contact'];
+
+    const handleScrollSpy = () => {
+      const scrollPosition = window.scrollY + 100; // Offset para el navbar
+
+      // Encontrar la sección más cercana al top del viewport
+      let currentSection = 'home';
+      let minDistance = Infinity;
+
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          // Si la sección está por encima de la posición actual de scroll, es candidata
+          if (offsetTop <= scrollPosition) {
+            const distance = scrollPosition - offsetTop;
+            if (distance < minDistance) {
+              minDistance = distance;
+              currentSection = sectionId;
+            }
+          }
+        }
+      });
+
+      setMenu(prev => prev !== currentSection ? currentSection : prev);
+    };
+
+    // Ejecutar una vez al cargar
+    handleScrollSpy();
+
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, []);
+
   const scrollToSection = (id) => {
     const target = document.getElementById(id);
 

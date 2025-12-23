@@ -1,6 +1,8 @@
 import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
+import useLenis from './hooks/useLenis'
+import 'lenis/dist/lenis.css'
 
 // Lazy load components below the fold
 const About = lazy(() => import('./components/About/About'))
@@ -11,29 +13,30 @@ const Contact = lazy(() => import('./components/Contact/Contact'))
 const Footer = lazy(() => import('./components/Footer/Footer'))
 
 const App = () => {
-  // Usando scroll nativo de CSS - simple y funcional
+  // Inicializar Lenis para smooth scroll
+  useLenis();
 
   return (
     <div>
-      <Navbar/>
-      <Hero/>
+      <Navbar />
+      <Hero />
       <Suspense fallback={<div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />}>
-        <About/>
+        <About />
       </Suspense>
       <Suspense fallback={<div style={{ minHeight: '30vh' }} />}>
-        <Highlights/>
+        <Highlights />
       </Suspense>
       <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
-        <Services/>
+        <Services />
       </Suspense>
       <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
-        <MyWork/>
+        <MyWork />
       </Suspense>
       <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
-        <Contact/>
+        <Contact />
       </Suspense>
       <Suspense fallback={<div style={{ minHeight: '30vh' }} />}>
-        <Footer/>
+        <Footer />
       </Suspense>
     </div>
   )
