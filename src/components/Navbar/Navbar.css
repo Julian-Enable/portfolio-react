@@ -1,8 +1,6 @@
 .navbar-glass {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin: 20px auto 0;
     width: calc(100% - 340px);
     max-width: 1200px;
     z-index: 1000;
@@ -73,10 +71,10 @@
 }
 
 .nav-menu li:has(.nav-active-underline) .anchor-link {
-    background: linear-gradient(135deg, 
-        rgba(223, 137, 8, 0.1) 0%, 
-        rgba(201, 75, 245, 0.1) 50%, 
-        rgba(180, 21, 255, 0.1) 100%);
+    background: linear-gradient(135deg,
+            rgba(223, 137, 8, 0.1) 0%,
+            rgba(201, 75, 245, 0.1) 50%,
+            rgba(180, 21, 255, 0.1) 100%);
     background-size: 200% 200%;
     animation: gradientShift 4s ease infinite;
     color: #ffffff;
@@ -84,7 +82,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    box-shadow: 
+    box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
@@ -94,9 +92,12 @@
 }
 
 @keyframes gradientShift {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
@@ -171,14 +172,14 @@
 .navbar-glass.shrunk {
     top: 8px;
     height: 58px;
-    box-shadow: 0 2px 16px 0 rgba(36,30,50,0.13);
-    transition: height 0.3s cubic-bezier(.39,.18,.66,1.22), top 0.3s cubic-bezier(.39,.18,.66,1.22), box-shadow 0.3s;
+    box-shadow: 0 2px 16px 0 rgba(36, 30, 50, 0.13);
+    transition: height 0.3s cubic-bezier(.39, .18, .66, 1.22), top 0.3s cubic-bezier(.39, .18, .66, 1.22), box-shadow 0.3s;
 }
 
 .navbar.shrunk {
     padding: 1px 18px;
     min-height: 42px;
-    transition: padding 0.3s cubic-bezier(.39,.18,.66,1.12), min-height 0.3s;
+    transition: padding 0.3s cubic-bezier(.39, .18, .66, 1.12), min-height 0.3s;
 }
 
 @media(max-width: 1024px) {
@@ -279,7 +280,7 @@
     .nav-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         z-index: 1099;
         -webkit-backdrop-filter: blur(2px);
         backdrop-filter: blur(2px);
@@ -305,7 +306,7 @@
         padding-left: 27px;
         backdrop-filter: blur(12px) saturate(180%);
         -webkit-backdrop-filter: blur(12px) saturate(180%);
-        box-shadow: 
+        box-shadow:
             0 4px 12px rgba(0, 0, 0, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
@@ -313,8 +314,16 @@
     .nav-menu li:has(.nav-active-underline) .anchor-link::after {
         display: none;
     }
-  .navbar-glass.shrunk { height: 0; min-height: 0; }
-  .navbar.shrunk { padding: 0; min-height: 0; }
+
+    .navbar-glass.shrunk {
+        height: 0;
+        min-height: 0;
+    }
+
+    .navbar.shrunk {
+        padding: 0;
+        min-height: 0;
+    }
 }
 
 /* Small mobile - Solo ajustes de tamaño, el menú drawer ya está definido en 820px */
