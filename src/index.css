@@ -1,15 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
-  scroll-padding-top: 140px;
-  overflow-x: hidden;
   /* Scroll suave nativo de CSS */
   scroll-behavior: smooth;
 }
@@ -49,7 +49,9 @@ html.lenis {
 }
 
 /* Optimizar imágenes y contenido pesado durante scroll */
-img, video, iframe {
+img,
+video,
+iframe {
   will-change: auto;
   content-visibility: auto;
 }
@@ -81,8 +83,8 @@ img, video, iframe {
   background: linear-gradient(180deg, #FFA520 0%, #E560FF 50%, #C92AFF 100%);
 }
 
-body{
-  height: 100vh;
+body {
+  min-height: 100vh;
   background: #161513;
   color: white;
   font-family: 'outfit';
@@ -96,7 +98,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-:root{
+:root {
   --brand-grad: linear-gradient(120deg, #B415FF 0%, #C94BF5 35%, #DF8908 100%);
   --brand-grad-soft: linear-gradient(120deg, #B415FF 0%, #C94BF5 35%, #DF8908 100%);
   --brand-grad-animated: linear-gradient(120deg, #B415FF 0%, #C94BF5 35%, #DF8908 100%, #B415FF 200%);
@@ -109,8 +111,15 @@ body {
 
 /* Animación de gradiente sutil */
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Animación de fade in al scroll */
@@ -119,6 +128,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
