@@ -63,15 +63,15 @@ const Navbar = () => {
       borderRadius={50}
       className="navbar-glass"
       displace={0}
-      distortionScale={-150}
-      brightness={50}
-      opacity={0.95}
-      backgroundOpacity={0.08}
-      saturation={1.8}
-      blur={20}
+      distortionScale={-80}
+      brightness={55}
+      opacity={0.97}
+      backgroundOpacity={0.05}
+      saturation={2.0}
+      blur={28}
       redOffset={0}
-      greenOffset={0}
-      blueOffset={0}
+      greenOffset={3}
+      blueOffset={6}
     >
       <div className='navbar' ref={navContainerRef}>
         <img src={logo} alt="Logo" ref={navRef} />
