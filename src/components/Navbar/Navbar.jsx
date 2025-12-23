@@ -11,8 +11,7 @@ const SECTIONS = ['home', 'about', 'services', 'work', 'contact'];
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const glassRef = useRef(null);
-  const navbarRef = useRef(null);
+  const [isShrunk, setIsShrunk] = useState(false);
   const isScrollingRef = useRef(false);
 
   const openMenu = useCallback(() => {
@@ -35,10 +34,7 @@ const Navbar = () => {
   // Efecto shrink al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (!glassRef.current || !navbarRef.current) return;
-      const shouldShrink = window.scrollY > 42;
-      glassRef.current.classList.toggle('shrunk', shouldShrink);
-      navbarRef.current.classList.toggle('shrunk', shouldShrink);
+      setIsShrunk(window.scrollY > 42);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -96,7 +92,7 @@ const Navbar = () => {
       width="100%"
       height="80"
       borderRadius={50}
-      className="navbar-glass"
+      className={`navbar-glass${isShrunk ? ' shrunk' : ''}`}
       displace={0}
       distortionScale={-150}
       brightness={50}
@@ -107,9 +103,8 @@ const Navbar = () => {
       redOffset={0}
       greenOffset={0}
       blueOffset={0}
-      ref={glassRef}
     >
-      <div className='navbar' ref={navbarRef}>
+      <div className={`navbar${isShrunk ? ' shrunk' : ''}`}>
         <img src={logo} alt="Logo" />
         <button aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded={isMenuOpen} className='nav-mob-open' onClick={openMenu}>
           <img src={menu_open} alt="Abrir menú" />
