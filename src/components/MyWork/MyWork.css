@@ -50,12 +50,11 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(218, 124, 37, 0.3), 
-        rgba(185, 35, 225, 0.3), 
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(218, 124, 37, 0.3),
+            rgba(185, 35, 225, 0.3),
+            transparent);
 }
 
 /* Content Wrapper - Layout horizontal */
@@ -87,6 +86,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -147,7 +147,7 @@
     border-radius: 16px;
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 
+    box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.5),
         0 0 40px rgba(185, 35, 225, 0.2);
 }
@@ -323,11 +323,78 @@
     }
 }
 
+/* Nuevo: Breakpoint intermedio */
+@media (max-width: 640px) {
+    .mywork {
+        gap: 30px;
+        padding: 0 16px;
+        min-height: auto;
+    }
+
+    .mywork-title {
+        align-self: center;
+        margin-left: 0;
+    }
+
+    .mywork-title h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .mywork-container {
+        padding: 20px 16px;
+    }
+
+    .mywork-content-wrapper {
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+
+    .project-description {
+        max-width: 100%;
+        text-align: center;
+        order: 2;
+    }
+
+    .description-content h2 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .description-content p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+
+    .description-content .project-link {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+
+    .mywork-cardswap-wrapper {
+        height: 280px;
+        width: 100%;
+        padding-top: 60px;
+        order: 1;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: visible;
+    }
+
+    .mywork-showmore {
+        font-size: 15px;
+        padding: 14px 32px;
+        margin-bottom: 30px;
+    }
+}
+
 @media (max-width: 480px) {
     .mywork {
-        margin: 40px auto;
-        gap: 30px;
-        padding: 0 20px;
+        margin: 30px auto;
+        gap: 24px;
+        padding: 0 12px;
+        min-height: auto;
     }
 
     .mywork-title {
@@ -337,21 +404,22 @@
     }
 
     .mywork-title h1 {
-        font-size: 36px;
+        font-size: 28px;
         padding: 0;
         text-align: center;
     }
 
     .mywork-title img {
-        width: 90px;
+        width: 70px;
     }
 
     .mywork-container {
-        padding: 24px 16px;
+        padding: 16px 12px;
+        border-radius: 16px;
     }
 
     .mywork-content-wrapper {
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 20px;
         padding: 0;
     }
@@ -359,44 +427,70 @@
     .project-description {
         max-width: 100%;
         text-align: center;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .description-content h2 {
-        font-size: 28px;
-        margin-bottom: 12px;
+        font-size: 22px;
+        margin-bottom: 8px;
     }
 
     .description-content p {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 20px;
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 12px;
+        color: rgba(255, 255, 255, 0.75);
     }
 
     .description-content .project-link {
         padding: 10px 24px;
-        font-size: 14px;
+        font-size: 13px;
         margin: 0 auto;
     }
 
     .mywork-cardswap-wrapper {
-        height: 200px;
+        height: 260px;
         width: 100%;
-        padding-top: 10px;
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        overflow: visible;
+        margin-bottom: 16px;
     }
 
     .project-card-content {
-        border-radius: 12px;
+        border-radius: 10px;
         border-width: 1px;
     }
 
     .mywork-showmore {
-        font-size: 14px;
-        padding: 14px 28px;
-        margin-bottom: 30px;
-        gap: 10px;
+        font-size: 13px;
+        padding: 12px 24px;
+        margin-bottom: 20px;
+        gap: 8px;
     }
 
     .mywork-showmore:hover {
-        gap: 15px;
+        gap: 12px;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 375px) {
+    .mywork-title h1 {
+        font-size: 28px;
+    }
+
+    .description-content h2 {
+        font-size: 22px;
+    }
+
+    .mywork-cardswap-wrapper {
+        height: 200px;
     }
 }

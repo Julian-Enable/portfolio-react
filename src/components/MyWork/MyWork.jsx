@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './MyWork.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import mywork_data from '../../assets/mywork_data';
@@ -7,7 +7,19 @@ import CardSwap, { Card } from '../CardSwap/CardSwap';
 
 const MyWork = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const isPausedRef = useRef(false);
+
+    // Detectar viewport para ajustar CardSwap
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 640);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const handleCardChange = (newIndex) => {
         if (!isPausedRef.current) {
@@ -22,6 +34,11 @@ const MyWork = () => {
     const handleResume = () => {
         isPausedRef.current = false;
     };
+
+    // Dimensiones responsive del CardSwap
+    const cardConfig = isMobile
+        ? { width: 280, height: 180, cardDistance: 15, verticalDistance: 15, skewAmount: 3 }
+        : { width: 500, height: 400, cardDistance: 40, verticalDistance: 50, skewAmount: 6 };
 
     return (
         <div id='work' className='mywork'>
@@ -51,14 +68,14 @@ const MyWork = () => {
                     {/* Cards a la derecha */}
                     <div className="mywork-cardswap-wrapper">
                         <CardSwap
-                            width={500}
-                            height={400}
-                            cardDistance={40}
-                            verticalDistance={50}
+                            width={cardConfig.width}
+                            height={cardConfig.height}
+                            cardDistance={cardConfig.cardDistance}
+                            verticalDistance={cardConfig.verticalDistance}
                             delay={2500}
                             pauseOnHover={true}
                             easing="elastic"
-                            skewAmount={6}
+                            skewAmount={cardConfig.skewAmount}
                             onCardChange={handleCardChange}
                             onPause={handlePause}
                             onResume={handleResume}

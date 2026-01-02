@@ -89,8 +89,15 @@
 }
 
 @keyframes gradient-text {
-    0%, 100% { background-position: 0% center; }
-    50% { background-position: 100% center; }
+
+    0%,
+    100% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
 }
 
 .services-format h2::after {
@@ -134,17 +141,19 @@
 }
 
 /* Asegura que el contenido no empuje el ancho por palabras largas */
-.services-format > * { min-width: 0; }
+.services-format>* {
+    min-width: 0;
+}
 
 .services-format:hover {
     border-color: rgba(180, 21, 255, 0.5);
-    background: linear-gradient(135deg, 
-        rgba(180, 21, 255, 0.08), 
-        rgba(201, 75, 245, 0.05), 
-        rgba(223, 137, 8, 0.08));
-    box-shadow: 0 12px 40px rgba(180, 21, 255, 0.15), 
-                0 0 0 1px rgba(180, 21, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg,
+            rgba(180, 21, 255, 0.08),
+            rgba(201, 75, 245, 0.05),
+            rgba(223, 137, 8, 0.08));
+    box-shadow: 0 12px 40px rgba(180, 21, 255, 0.15),
+        0 0 0 1px rgba(180, 21, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transform: translateY(-4px);
 }
 
@@ -187,7 +196,34 @@
     }
 
     .services-container {
+        grid-template-columns: 1fr;
         gap: 24px;
+    }
+}
+
+/* Nuevo: Breakpoint intermedio */
+@media(max-width: 640px) {
+    .services {
+        gap: 40px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .services-title h1 {
+        font-size: 48px;
+    }
+
+    .services-format {
+        padding: 30px;
+    }
+
+    .services-format h2 {
+        font-size: 28px;
+    }
+
+    .services-format p {
+        font-size: 17px;
+        line-height: 30px;
     }
 }
 

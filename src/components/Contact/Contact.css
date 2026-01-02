@@ -192,7 +192,7 @@
     outline: none;
     border-color: #DF8908;
     background: rgba(30, 30, 38, 1);
-    box-shadow: 
+    box-shadow:
         0 0 0 4px rgba(223, 137, 8, 0.1),
         0 0 20px rgba(223, 137, 8, 0.3),
         0 4px 12px rgba(0, 0, 0, 0.4);
@@ -222,7 +222,7 @@
     outline: none;
     border-color: #DF8908;
     background: rgba(30, 30, 38, 1);
-    box-shadow: 
+    box-shadow:
         0 0 0 4px rgba(223, 137, 8, 0.1),
         0 0 20px rgba(223, 137, 8, 0.3),
         0 4px 12px rgba(0, 0, 0, 0.4);
@@ -335,6 +335,45 @@
     }
 }
 
+/* Nuevo: Breakpoint intermedio */
+@media(max-width: 640px) {
+    .contact {
+        gap: 50px;
+        padding: 35px 30px;
+    }
+
+    .contact-title h1 {
+        font-size: 48px;
+    }
+
+    .contact-left h1 {
+        font-size: 32px;
+    }
+
+    .contact-left p {
+        font-size: 15px;
+    }
+
+    .contact-right {
+        padding: 32px 24px;
+    }
+
+    .contact-right label {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    .contact-right input {
+        height: 50px;
+        font-size: 15px;
+    }
+
+    .contact-right textarea {
+        min-height: 140px;
+        font-size: 15px;
+    }
+}
+
 /* Responsividad para pantallas pequeñas (móviles) */
 @media(max-width: 480px) {
     .contact {
@@ -425,9 +464,32 @@
 
     .contact-submit {
         width: 100%;
-        padding: 15px 36px;
-        font-size: 15px;
+        padding: 14px 32px;
+        font-size: 14px;
         border-radius: 12px;
         margin-top: 8px;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media(max-width: 375px) {
+    .contact {
+        padding: 25px 16px;
+    }
+
+    .contact-title h1 {
+        font-size: 34px;
+    }
+
+    .contact-left h1 {
+        font-size: 24px;
+    }
+
+    .contact-right {
+        padding: 22px 16px;
+    }
+
+    .contact-right label {
+        letter-spacing: 0;
     }
 }

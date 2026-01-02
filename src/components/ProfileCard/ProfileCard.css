@@ -69,8 +69,7 @@
   position: relative;
   background-blend-mode: color-dodge, normal, normal, normal;
   animation: glow-bg 12s linear infinite;
-  box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px)
-    calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
+  box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
   transition: transform 1s ease;
   transform: translate3d(0, 0, 0.1px) rotateX(0deg) rotateY(0deg);
   background-size: 100% 100%;
@@ -80,13 +79,11 @@
     50% 50%,
     0 0;
   background-image:
-    radial-gradient(
-      farthest-side circle at var(--pointer-x) var(--pointer-y),
+    radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),
       hsla(266, 100%, 90%, var(--card-opacity)) 4%,
       hsla(266, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%,
       hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%,
-      hsla(266, 0%, 60%, 0) 100%
-    ),
+      hsla(266, 0%, 60%, 0) 100%),
     radial-gradient(35% 52% at 55% 20%, #00ffaac4 0%, #073aff00 100%),
     radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%),
     conic-gradient(from 124deg at 50% 50%, #c137ffff 0%, #07c6ffff 40%, #07c6ffff 60%, #c137ffff 100%);
@@ -146,31 +143,25 @@
   background-size: cover;
   background-position: center;
   background-image:
-    repeating-linear-gradient(
-      0deg,
+    repeating-linear-gradient(0deg,
       var(--sunpillar-clr-1) calc(var(--space) * 1),
       var(--sunpillar-clr-2) calc(var(--space) * 2),
       var(--sunpillar-clr-3) calc(var(--space) * 3),
       var(--sunpillar-clr-4) calc(var(--space) * 4),
       var(--sunpillar-clr-5) calc(var(--space) * 5),
       var(--sunpillar-clr-6) calc(var(--space) * 6),
-      var(--sunpillar-clr-1) calc(var(--space) * 7)
-    ),
-    repeating-linear-gradient(
-      var(--angle),
+      var(--sunpillar-clr-1) calc(var(--space) * 7)),
+    repeating-linear-gradient(var(--angle),
       #0e152e 0%,
       hsl(180, 10%, 60%) 3.8%,
       hsl(180, 29%, 66%) 4.5%,
       hsl(180, 10%, 60%) 5.2%,
       #0e152e 10%,
-      #0e152e 12%
-    ),
-    radial-gradient(
-      farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      #0e152e 12%),
+    radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
       hsla(0, 0%, 0%, 0.1) 12%,
       hsla(0, 0%, 0%, 0.15) 20%,
-      hsla(0, 0%, 0%, 0.25) 120%
-    );
+      hsla(0, 0%, 0%, 0.25) 120%);
   background-position:
     0 var(--background-y),
     var(--background-x) var(--background-y),
@@ -207,15 +198,13 @@
 
 .pc-shine::before {
   background-image:
-    linear-gradient(
-      45deg,
+    linear-gradient(45deg,
       var(--sunpillar-4),
       var(--sunpillar-5),
       var(--sunpillar-6),
       var(--sunpillar-1),
       var(--sunpillar-2),
-      var(--sunpillar-3)
-    ),
+      var(--sunpillar-3)),
     radial-gradient(circle at var(--pointer-x) var(--pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%),
     var(--grain);
   background-size:
@@ -227,8 +216,7 @@
     center,
     calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
   background-blend-mode: color-dodge;
-  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2))
-    saturate(calc(0.5 + var(--pointer-from-center)));
+  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2)) saturate(calc(0.5 + var(--pointer-from-center)));
   mix-blend-mode: luminosity;
 }
 
@@ -258,18 +246,21 @@
 
   mix-blend-mode: normal;
   filter: none;
-  opacity: 0; /* enabled in mobile media query */
+  opacity: 0;
+  /* enabled in mobile media query */
 }
 
 /* Apply the faint SVG fallback only on small viewports (mobile/tablet) so
    desktop appearance remains unchanged. Within that breakpoint, enable the
    fallback only when mask support is not available (older iOS Safari). */
 @media (max-width: 480px) {
+
   /* Enable the masked holo fallback on mobile: show the pseudo-element whose
      background is masked by the SVG so the effect appears THROUGH the icons. */
   .pc-shine::after {
     opacity: 1;
   }
+
   /* Also ensure hover/active states on mobile reveal the masked layer when
      the card is active (some mobile browsers simulate :hover on tap). */
   .pc-card.active .pc-shine::after,
@@ -281,11 +272,9 @@
 .pc-glare {
   transform: translate3d(0, 0, 1.1px);
   overflow: hidden;
-  background-image: radial-gradient(
-    farthest-corner circle at var(--pointer-x) var(--pointer-y),
-    hsl(248, 25%, 80%) 12%,
-    hsla(207, 40%, 30%, 0.8) 90%
-  );
+  background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      hsl(248, 25%, 80%) 12%,
+      hsla(207, 40%, 30%, 0.8) 90%);
   mix-blend-mode: overlay;
   filter: brightness(0.8) contrast(1.2);
   z-index: 4;
@@ -427,17 +416,16 @@
   overflow: hidden;
   text-align: center;
   position: relative;
-  transform: translate3d(
-    calc(var(--pointer-from-left) * -6px + 3px),
-    calc(var(--pointer-from-top) * -6px + 3px),
-    0.1px
-  ) !important;
+  transform: translate3d(calc(var(--pointer-from-left) * -6px + 3px),
+      calc(var(--pointer-from-top) * -6px + 3px),
+      0.1px) !important;
   z-index: 5;
   mix-blend-mode: normal;
 }
 
 .pc-details {
-  display: none; /* Ocultado - información movida a pc-user-info */
+  display: none;
+  /* Ocultado - información movida a pc-user-info */
 }
 
 @keyframes glow-bg {
@@ -514,10 +502,35 @@
   }
 }
 
+/* Nuevo: Breakpoint intermedio */
+@media (max-width: 640px) {
+  .pc-card {
+    height: 55svh;
+    max-height: 380px;
+  }
+
+  .pc-user-info {
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    padding: 9px 11px;
+    border-radius: 12px;
+  }
+
+  .pc-handle {
+    font-size: 12px;
+  }
+
+  .pc-contact-btn {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 480px) {
   .pc-card {
-    height: 60svh;
-    max-height: 380px;
+    height: 50svh;
+    max-height: 320px;
   }
 
   .pc-details {

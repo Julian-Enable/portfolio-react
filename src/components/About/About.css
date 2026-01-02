@@ -78,10 +78,10 @@
 .skill-bar {
     width: 50%;
     height: 12px;
-    background: linear-gradient(90deg, 
-        rgba(223, 137, 8, 0.1) 0%, 
-        rgba(201, 75, 245, 0.1) 50%, 
-        rgba(180, 21, 255, 0.1) 100%);
+    background: linear-gradient(90deg,
+            rgba(223, 137, 8, 0.1) 0%,
+            rgba(201, 75, 245, 0.1) 50%,
+            rgba(180, 21, 255, 0.1) 100%);
     border-radius: 6px;
     overflow: hidden;
     position: relative;
@@ -92,14 +92,14 @@
 .skill-fill {
     height: 100%;
     border-radius: 6px;
-    background: linear-gradient(135deg, 
-        #DF8908 0%, 
-        #E89520 25%,
-        #C94BF5 50%, 
-        #B83FE8 75%,
-        #B415FF 100%);
+    background: linear-gradient(135deg,
+            #DF8908 0%,
+            #E89520 25%,
+            #C94BF5 50%,
+            #B83FE8 75%,
+            #B415FF 100%);
     background-size: 300% 100%;
-    transition: width 1.5s cubic-bezier(0.28,1.1,0.38,1), filter 0.5s;
+    transition: width 1.5s cubic-bezier(0.28, 1.1, 0.38, 1), filter 0.5s;
     will-change: width, filter;
     display: flex;
     align-items: center;
@@ -110,13 +110,21 @@
 }
 
 .skill-fill[data-filled="true"] {
-    animation: fill-bounce 0.55s cubic-bezier(.51,1.61,.44,.99);
+    animation: fill-bounce 0.55s cubic-bezier(.51, 1.61, .44, .99);
 }
 
 @keyframes fill-bounce {
-  0% { transform: scaleX(1); }
-  75% { transform: scaleX(1.04); }
-  100% { transform: scaleX(1); }
+    0% {
+        transform: scaleX(1);
+    }
+
+    75% {
+        transform: scaleX(1.04);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
 }
 
 .skill-percent {
@@ -130,7 +138,7 @@
     opacity: 0;
     pointer-events: none;
     filter: drop-shadow(0 1px 4px #B415FF60) drop-shadow(0 2px 6px #fff8);
-    transition: opacity 0.85s 0.6s cubic-bezier(0.42,0,0.58,1);
+    transition: opacity 0.85s 0.6s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .skill-fill[data-filled="true"] .skill-percent {
@@ -138,8 +146,15 @@
 }
 
 @keyframes gradient-flow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .skill-fill::before {
@@ -149,19 +164,33 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
     animation: shine 3s ease-in-out infinite;
 }
 
 @keyframes shine {
-    0%, 100% { left: -100%; opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { left: 100%; opacity: 0; }
+
+    0%,
+    100% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
 }
 
 .skill-fill[data-filled="true"]::before {
@@ -174,7 +203,7 @@
     height: 22px;
     border-radius: 9px;
     background: radial-gradient(circle at 60% 45%, #fff7, #B415FF40 80%, transparent 100%);
-    box-shadow: 0 0 20px 2px #B415FF88,0 0 32px 12px #fff4;
+    box-shadow: 0 0 20px 2px #B415FF88, 0 0 32px 12px #fff4;
     transform: translateY(-50%);
     z-index: 2;
 }
@@ -184,10 +213,10 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-        rgba(255, 255, 255, 0.2) 0%,
-        transparent 30%,
-        transparent 70%,
-        rgba(0, 0, 0, 0.2) 100%);
+            rgba(255, 255, 255, 0.2) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(0, 0, 0, 0.2) 100%);
     border-radius: 6px;
     pointer-events: none;
 }
@@ -219,9 +248,17 @@
 }
 
 @keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .about-archivement p {
@@ -294,22 +331,56 @@
     }
 }
 
+/* Nuevo: Breakpoint intermedio */
+@media(max-width: 640px) {
+    .about {
+        gap: 45px;
+        margin: 25px 25px;
+    }
+
+    .about-title h1 {
+        font-size: 44px;
+    }
+
+    .about-right {
+        gap: 50px;
+    }
+
+    .about-para {
+        font-size: 17px;
+    }
+
+    .about-skill p {
+        font-size: 15px;
+        min-width: 130px;
+        max-width: 130px;
+    }
+
+    .about-archivement h1 {
+        font-size: 36px;
+    }
+
+    .about-archivement p {
+        font-size: 16px;
+    }
+}
+
 /* Responsividad para pantallas pequeñas (móviles) */
 @media(max-width: 480px) {
     .about {
-        gap: 40px;
+        gap: 35px;
         margin: 20px 20px;
         align-items: center;
     }
 
     .about-title h1 {
-        font-size: 40px;
+        font-size: 36px;
         text-align: center;
         padding: 0 10px;
     }
 
     .about-title img {
-        width: 100px;
+        width: 90px;
         right: -10px;
         bottom: -5px;
     }
@@ -319,23 +390,30 @@
         gap: 20px;
     }
 
+    .about-right {
+        gap: 35px;
+    }
+
     .about-para {
-        font-size: 16px;
-        line-height: 28px;
+        font-size: 15px;
+        line-height: 26px;
     }
 
     .about-skill {
-        gap: 10px;
+        gap: 8px;
+        flex-wrap: wrap;
     }
 
     .about-skill p {
-        font-size: 16px;
-        min-width: 140px;
-        max-width: 140px;
+        font-size: 14px;
+        min-width: 100px;
+        max-width: 100px;
     }
 
     .skill-bar {
-        height: 4px;
+        height: 6px;
+        flex: 1;
+        min-width: 80px;
     }
 
     .about-archivements {
@@ -348,7 +426,21 @@
     }
 
     .about-archivement p {
-        font-size: 14px;
+        font-size: 13px;
         text-align: center;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media(max-width: 375px) {
+    .about-skill p {
+        font-size: 13px;
+        min-width: 85px;
+        max-width: 85px;
+    }
+
+    .about-para {
+        font-size: 14px;
+        line-height: 24px;
     }
 }
