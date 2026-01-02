@@ -8,17 +8,20 @@ import CardSwap, { Card } from '../CardSwap/CardSwap';
 const MyWork = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
     const isPausedRef = useRef(false);
 
     // Detectar viewport para ajustar CardSwap
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 640);
+        const checkViewport = () => {
+            const width = window.innerWidth;
+            setIsMobile(width <= 640);
+            setIsTablet(width > 640 && width <= 768);
         };
 
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        checkViewport();
+        window.addEventListener('resize', checkViewport);
+        return () => window.removeEventListener('resize', checkViewport);
     }, []);
 
     const handleCardChange = (newIndex) => {
@@ -38,7 +41,9 @@ const MyWork = () => {
     // Dimensiones responsive del CardSwap
     const cardConfig = isMobile
         ? { width: 350, height: 220, cardDistance: 10, verticalDistance: 14, skewAmount: 3 }
-        : { width: 500, height: 400, cardDistance: 40, verticalDistance: 50, skewAmount: 6 };
+        : isTablet
+            ? { width: 420, height: 260, cardDistance: 15, verticalDistance: 18, skewAmount: 4 }
+            : { width: 500, height: 400, cardDistance: 40, verticalDistance: 50, skewAmount: 6 };
 
     return (
         <div id='work' className='mywork'>
