@@ -373,11 +373,15 @@
     }
 
     .mywork-cardswap-wrapper {
-        height: 280px;
+        height: 300px;
         width: 100%;
-        padding-top: 60px;
+        padding-top: 40px;
+        padding-left: 20px;
         order: 1;
-        margin-bottom: 20px;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
         position: relative;
         overflow: visible;
     }
@@ -452,15 +456,17 @@
     }
 
     .mywork-cardswap-wrapper {
-        height: 260px;
+        height: 280px;
         width: 100%;
-        padding-top: 50px;
+        max-width: 360px;
+        padding-top: 35px;
+        padding-left: 15px;
+        margin: 0 auto 16px auto;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         position: relative;
         overflow: visible;
-        margin-bottom: 16px;
     }
 
     .project-card-content {

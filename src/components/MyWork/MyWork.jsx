@@ -37,7 +37,7 @@ const MyWork = () => {
 
     // Dimensiones responsive del CardSwap
     const cardConfig = isMobile
-        ? { width: 280, height: 180, cardDistance: 15, verticalDistance: 15, skewAmount: 3 }
+        ? { width: 320, height: 200, cardDistance: 8, verticalDistance: 12, skewAmount: 3 }
         : { width: 500, height: 400, cardDistance: 40, verticalDistance: 50, skewAmount: 6 };
 
     return (
