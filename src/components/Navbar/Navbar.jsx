@@ -44,6 +44,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMenuOpen]);
+
   // Scroll Spy - detectar sección activa al hacer scroll
   useEffect(() => {
     const sections = ['home', 'about', 'services', 'work', 'contact'];
@@ -115,38 +128,38 @@ const Navbar = () => {
           <img src={menu_open} alt="Abrir menú" />
         </button>
         {isMenuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true"></div>}
-        <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'open' : ''}`} role="menubar">
-          <li role="none">
+        <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+          <li>
             <button aria-label="Cerrar menú" className="nav-mob-close" onClick={closeMenu}>
               <img src={menu_close} alt="Cerrar menú" />
             </button>
           </li>
-          <li role="none">
-            <a className='anchor-link' href="#home" onClick={e => { e.preventDefault(); scrollToSection('home'); closeMenu(); }} role="menuitem" aria-current={menu === 'home' ? 'page' : undefined}>
+          <li>
+            <a className='anchor-link' href="#home" onClick={e => { e.preventDefault(); scrollToSection('home'); closeMenu(); }} aria-current={menu === 'home' ? 'page' : undefined}>
               Inicio
             </a>
             {menu === "home" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
           </li>
-          <li role="none">
-            <a className='anchor-link' href="#about" onClick={e => { e.preventDefault(); scrollToSection('about'); closeMenu(); }} role="menuitem" aria-current={menu === 'about' ? 'page' : undefined}>
+          <li>
+            <a className='anchor-link' href="#about" onClick={e => { e.preventDefault(); scrollToSection('about'); closeMenu(); }} aria-current={menu === 'about' ? 'page' : undefined}>
               Sobre mí
             </a>
             {menu === "about" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
           </li>
-          <li role="none">
-            <a className='anchor-link' href="#services" onClick={e => { e.preventDefault(); scrollToSection('services'); closeMenu(); }} role="menuitem" aria-current={menu === 'services' ? 'page' : undefined}>
+          <li>
+            <a className='anchor-link' href="#services" onClick={e => { e.preventDefault(); scrollToSection('services'); closeMenu(); }} aria-current={menu === 'services' ? 'page' : undefined}>
               Servicios
             </a>
             {menu === "services" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
           </li>
-          <li role="none">
-            <a className='anchor-link' href="#work" onClick={e => { e.preventDefault(); scrollToSection('work'); closeMenu(); }} role="menuitem" aria-current={menu === 'work' ? 'page' : undefined}>
+          <li>
+            <a className='anchor-link' href="#work" onClick={e => { e.preventDefault(); scrollToSection('work'); closeMenu(); }} aria-current={menu === 'work' ? 'page' : undefined}>
               Portafolio
             </a>
             {menu === "work" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}
           </li>
-          <li role="none">
-            <a className='anchor-link' href="#contact" onClick={e => { e.preventDefault(); scrollToSection('contact'); closeMenu(); }} role="menuitem" aria-current={menu === 'contact' ? 'page' : undefined}>
+          <li>
+            <a className='anchor-link' href="#contact" onClick={e => { e.preventDefault(); scrollToSection('contact'); closeMenu(); }} aria-current={menu === 'contact' ? 'page' : undefined}>
               Contacto
             </a>
             {menu === "contact" ? <img className="nav-active-underline" src={underline} alt="Subrayado" /> : null}

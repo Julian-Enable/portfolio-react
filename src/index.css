@@ -62,7 +62,7 @@ iframe {
 @supports (scrollbar-width: auto) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #C94BF5 #1a1a1a;
+    scrollbar-color: rgba(201, 75, 245, 0.8) #1a1a1a;
   }
 }
 
@@ -76,13 +76,13 @@ iframe {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+  background: linear-gradient(180deg, rgba(223, 137, 8, 0.85) 0%, rgba(201, 75, 245, 0.82) 50%, rgba(180, 21, 255, 0.82) 100%);
   border-radius: 10px;
   border: 2px solid #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #FFA520 0%, #E560FF 50%, #C92AFF 100%);
+  background: linear-gradient(180deg, rgba(255, 165, 32, 0.95) 0%, rgba(229, 96, 255, 0.92) 50%, rgba(201, 42, 255, 0.92) 100%);
 }
 
 body {
