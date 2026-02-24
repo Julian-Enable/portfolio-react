@@ -79,10 +79,18 @@ Edita `src/index.css` para cambiar el sistema de colores:
 
 ## 📧 Configuración de Formularios
 
-El formulario de contacto usa Web3Forms. Para configurarlo:
+El formulario de contacto usa un endpoint backend serverless (`/api/contact`) en Netlify que reenvía a Web3Forms.
+
+### Variables de entorno recomendadas
+
+- **Producción (Netlify):** `WEB3FORMS_ACCESS_KEY`
+- **Local opcional (fallback en Vite):** `VITE_WEB3FORMS_ACCESS_KEY`
+
+### Configuración rápida
 
 1. Obtén tu API key en [web3forms.com](https://web3forms.com)
-2. Reemplaza el `access_key` en `src/components/Contact/Contact.jsx`
+2. En Netlify, agrega `WEB3FORMS_ACCESS_KEY` en **Site settings → Environment variables**
+3. (Opcional local) copia `.env.example` a `.env.local` y define `VITE_WEB3FORMS_ACCESS_KEY`
 
 ## 📱 Responsive Breakpoints
 

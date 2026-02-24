@@ -34,7 +34,6 @@ const ProfileCardComponent = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = 'Julia D. Gonzalez',
   title = 'Software Engineer',
   contactText = 'Contact',

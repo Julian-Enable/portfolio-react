@@ -5,6 +5,34 @@ import mail_icon from '../../assets/mail_icon.svg'
 import location_icon from '../../assets/location_icon.svg'
 import call_icon from '../../assets/call_icon.svg'
 
+const CONTACT_API_ENDPOINT = '/api/contact'
+const FALLBACK_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+const CAN_USE_CLIENT_FALLBACK = import.meta.env.DEV && Boolean(FALLBACK_ACCESS_KEY)
+
+const submitToWeb3FormsFallback = async (payload) => {
+  if (!FALLBACK_ACCESS_KEY) {
+    throw new Error('FALLBACK_ACCESS_KEY_NOT_CONFIGURED')
+  }
+
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify({
+      ...payload,
+      access_key: FALLBACK_ACCESS_KEY
+    })
+  }).then((response) => response.json())
+
+  if (!res.success) {
+    throw new Error('FALLBACK_SUBMIT_FAILED')
+  }
+
+  return res
+}
+
 const Contact = () => {
 
         const [submitting, setSubmitting] = useState(false)
@@ -19,20 +47,23 @@ const Contact = () => {
 
           const form = event.target
           const formData = new FormData(form)
-          formData.append("access_key", "8c2d9ef9-cc72-471b-8adb-9455dc1201c4")
-
-          const object = Object.fromEntries(formData)
-          const json = JSON.stringify(object)
+          const payload = Object.fromEntries(formData)
 
           try {
-            const res = await fetch("https://api.web3forms.com/submit", {
+            const response = await fetch(CONTACT_API_ENDPOINT, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json"
               },
-              body: json
-            }).then((res) => res.json())
+              body: JSON.stringify(payload)
+            })
+
+            if (!response.ok) {
+              throw new Error('SERVERLESS_SUBMIT_FAILED')
+            }
+
+            const res = await response.json()
 
             if (res.success) {
               setIsSuccess(true)
@@ -43,8 +74,23 @@ const Contact = () => {
               setResultMessage("No se pudo enviar el mensaje. Inténtalo nuevamente.")
             }
           } catch (error) {
-            setIsSuccess(false)
-            setResultMessage("Ocurrió un error de red. Revisa tu conexión e intenta otra vez.")
+            if (CAN_USE_CLIENT_FALLBACK) {
+              try {
+                const fallbackRes = await submitToWeb3FormsFallback(payload)
+
+                if (fallbackRes.success) {
+                  setIsSuccess(true)
+                  setResultMessage("¡Mensaje enviado! Te responderé pronto.")
+                  form.reset()
+                }
+              } catch {
+                setIsSuccess(false)
+                setResultMessage("Ocurrió un error de red. Revisa tu conexión e intenta otra vez.")
+              }
+            } else {
+              setIsSuccess(false)
+              setResultMessage("No se pudo enviar el mensaje en este momento. Inténtalo nuevamente más tarde.")
+            }
           } finally {
             setSubmitting(false)
           }

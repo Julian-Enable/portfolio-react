@@ -8,6 +8,11 @@ import Lenis from 'lenis';
  */
 export const useLenis = (options = {}) => {
     const lenisRef = useRef(null);
+    const optionsRef = useRef(options);
+
+    useEffect(() => {
+        optionsRef.current = options;
+    }, [options]);
 
     useEffect(() => {
         // Inicializar Lenis con opciones personalizadas
@@ -19,7 +24,7 @@ export const useLenis = (options = {}) => {
             wheelMultiplier: 1,
             touchMultiplier: 2,
             infinite: false,
-            ...options
+            ...optionsRef.current
         });
 
         lenisRef.current = lenis;
