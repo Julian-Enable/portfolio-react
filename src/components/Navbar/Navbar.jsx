@@ -61,33 +61,38 @@ const Navbar = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isMenuOpen]);
 
-  // Scroll Spy usando IntersectionObserver (más eficiente que scroll listeners)
+  // Scroll Spy - detectar sección activa al hacer scroll
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setMenu(entry.target.id);
+    const handleScrollSpy = () => {
+      const scrollPosition = window.scrollY + OFFSET_SCROLL_SPY; // Offset para el navbar
+
+      // Encontrar la sección más cercana al top del viewport
+      let currentSection = 'home';
+      let minDistance = Infinity;
+
+      SECCIONES.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          // Si la sección está por encima de la posición actual de scroll, es candidata
+          if (offsetTop <= scrollPosition) {
+            const distance = scrollPosition - offsetTop;
+            if (distance < minDistance) {
+              minDistance = distance;
+              currentSection = sectionId;
+            }
           }
-        });
-      },
-      {
-        root: null, // viewport
-        threshold: 0.5, // considerarVisible cuando al menos 50% es visible
-        rootMargin: `-${OFFSET_SCROLL_SPY}px 0px 0px 0px` // offset para considerar la posición del navbar
-      }
-    );
+        }
+      });
 
-    SECCIONES.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      observer.disconnect();
+      setMenu(prev => prev !== currentSection ? currentSection : prev);
     };
+
+    // Ejecutar una vez al cargar
+    handleScrollSpy();
+
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    return () => window.removeEventListener('scroll', handleScrollSpy);
   }, []);
 
   const scrollToSection = (id) => {
