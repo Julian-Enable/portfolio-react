@@ -1,15 +1,38 @@
 import { useState, useRef, useEffect } from 'react';
 import './MyWork.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
-import mywork_data from '../../assets/mywork_data';
+import mywork_data from '../../data/myworkData';
 import arrow_icon from '../../assets/arrow_icon.svg';
 import CardSwap, { Card } from '../CardSwap/CardSwap';
+
+const VIEWPORT_MOBILE_BREAKPOINT = 640;
+const VIEWPORT_TABLET_BREAKPOINT = 768;
+const DEFAULT_VIEWPORT_WIDTH = 1200;
+const MOBILE_WIDTH_PADDING = 56;
+const MOBILE_MIN_WIDTH = 250;
+const MOBILE_MAX_WIDTH = 340;
+const TABLET_WIDTH_PADDING = 120;
+const TABLET_MIN_WIDTH = 320;
+const TABLET_MAX_WIDTH = 420;
+const DESKTOP_CARD_WIDTH = 500;
+const DESKTOP_CARD_HEIGHT = 400;
+const DESKTOP_CARD_DISTANCE = 40;
+const DESKTOP_VERTICAL_DISTANCE = 50;
+const DESKTOP_SKEW_AMOUNT = 6;
+const MOBILE_CARD_HEIGHT_RATIO = 0.63;
+const TABLET_CARD_HEIGHT_RATIO = 0.62;
+const MOBILE_CARD_DISTANCE = 10;
+const MOBILE_VERTICAL_DISTANCE = 14;
+const MOBILE_SKEW_AMOUNT = 3;
+const TABLET_CARD_DISTANCE = 15;
+const TABLET_VERTICAL_DISTANCE = 18;
+const TABLET_SKEW_AMOUNT = 4;
 
 const MyWork = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
-    const [viewportWidth, setViewportWidth] = useState(1200);
+    const [viewportWidth, setViewportWidth] = useState(DEFAULT_VIEWPORT_WIDTH);
     const isPausedRef = useRef(false);
 
     // Detectar viewport para ajustar CardSwap
@@ -17,8 +40,8 @@ const MyWork = () => {
         const checkViewport = () => {
             const width = window.innerWidth;
             setViewportWidth(width);
-            setIsMobile(width <= 640);
-            setIsTablet(width > 640 && width <= 768);
+            setIsMobile(width <= VIEWPORT_MOBILE_BREAKPOINT);
+            setIsTablet(width > VIEWPORT_MOBILE_BREAKPOINT && width <= VIEWPORT_TABLET_BREAKPOINT);
         };
 
         checkViewport();
@@ -41,26 +64,32 @@ const MyWork = () => {
     };
 
     // Dimensiones responsive del CardSwap
-    const mobileWidth = Math.min(Math.max(viewportWidth - 56, 250), 340);
-    const tabletWidth = Math.min(Math.max(viewportWidth - 120, 320), 420);
+    const mobileWidth = Math.min(Math.max(viewportWidth - MOBILE_WIDTH_PADDING, MOBILE_MIN_WIDTH), MOBILE_MAX_WIDTH);
+    const tabletWidth = Math.min(Math.max(viewportWidth - TABLET_WIDTH_PADDING, TABLET_MIN_WIDTH), TABLET_MAX_WIDTH);
 
     const cardConfig = isMobile
         ? {
             width: mobileWidth,
-            height: Math.round(mobileWidth * 0.63),
-            cardDistance: 10,
-            verticalDistance: 14,
-            skewAmount: 3
+            height: Math.round(mobileWidth * MOBILE_CARD_HEIGHT_RATIO),
+            cardDistance: MOBILE_CARD_DISTANCE,
+            verticalDistance: MOBILE_VERTICAL_DISTANCE,
+            skewAmount: MOBILE_SKEW_AMOUNT
         }
         : isTablet
             ? {
                 width: tabletWidth,
-                height: Math.round(tabletWidth * 0.62),
-                cardDistance: 15,
-                verticalDistance: 18,
-                skewAmount: 4
+                height: Math.round(tabletWidth * TABLET_CARD_HEIGHT_RATIO),
+                cardDistance: TABLET_CARD_DISTANCE,
+                verticalDistance: TABLET_VERTICAL_DISTANCE,
+                skewAmount: TABLET_SKEW_AMOUNT
             }
-            : { width: 500, height: 400, cardDistance: 40, verticalDistance: 50, skewAmount: 6 };
+            : {
+                width: DESKTOP_CARD_WIDTH,
+                height: DESKTOP_CARD_HEIGHT,
+                cardDistance: DESKTOP_CARD_DISTANCE,
+                verticalDistance: DESKTOP_VERTICAL_DISTANCE,
+                skewAmount: DESKTOP_SKEW_AMOUNT
+            };
 
     return (
         <div id='work' className='mywork'>

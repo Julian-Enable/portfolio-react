@@ -1,6 +1,6 @@
 import './Services.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
-import Services_Data from '../../assets/services_data'
+import Services_Data from '../../data/servicesData'
 
 const Services = () => {
     return (

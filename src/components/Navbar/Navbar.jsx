@@ -6,6 +6,10 @@ import menu_open from '../../assets/menu_open.svg';
 import menu_close from '../../assets/menu_close.svg';
 import GlassSurface from '../GlassSurface/GlassSurface';
 
+const SECCIONES = ['home', 'about', 'services', 'work', 'contact'];
+const UMBRAL_NAVBAR_ENCOLCHADO = 42;
+const OFFSET_SCROLL_SPY = 100;
+
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +36,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (!navContainerRef.current || !navRef.current) return;
-      if (window.scrollY > 42) {
+      if (window.scrollY > UMBRAL_NAVBAR_ENCOLCHADO) {
         navContainerRef.current.classList.add('shrunk');
         navRef.current.classList.add('shrunk');
       } else {
@@ -57,40 +61,33 @@ const Navbar = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isMenuOpen]);
 
-  // Scroll Spy - detectar sección activa al hacer scroll
+  // Scroll Spy usando IntersectionObserver (más eficiente que scroll listeners)
   useEffect(() => {
-    const sections = ['home', 'about', 'services', 'work', 'contact'];
-
-    const handleScrollSpy = () => {
-      const scrollPosition = window.scrollY + 100; // Offset para el navbar
-
-      // Encontrar la sección más cercana al top del viewport
-      let currentSection = 'home';
-      let minDistance = Infinity;
-
-      sections.forEach((sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          // Si la sección está por encima de la posición actual de scroll, es candidata
-          if (offsetTop <= scrollPosition) {
-            const distance = scrollPosition - offsetTop;
-            if (distance < minDistance) {
-              minDistance = distance;
-              currentSection = sectionId;
-            }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setMenu(entry.target.id);
           }
-        }
-      });
+        });
+      },
+      {
+        root: null, // viewport
+        threshold: 0.5, // considerarVisible cuando al menos 50% es visible
+        rootMargin: `-${OFFSET_SCROLL_SPY}px 0px 0px 0px` // offset para considerar la posición del navbar
+      }
+    );
 
-      setMenu(prev => prev !== currentSection ? currentSection : prev);
+    SECCIONES.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
     };
-
-    // Ejecutar una vez al cargar
-    handleScrollSpy();
-
-    window.addEventListener('scroll', handleScrollSpy, { passive: true });
-    return () => window.removeEventListener('scroll', handleScrollSpy);
   }, []);
 
   const scrollToSection = (id) => {
