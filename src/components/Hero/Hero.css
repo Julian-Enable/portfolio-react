@@ -1,14 +1,4 @@
-/* === VARIABLES GLOBALES === */
-:root {
-    --brand-grad: linear-gradient(120deg, #B415FF 0%, #C94BF5 25%, #DF8908 50%, #FFC857 75%, #B415FF 100%);
-    --btn-shadow: 0 8px 24px rgba(180, 21, 255, 0.18);
-    --btn-shadow-hover: 0 16px 40px rgba(180, 21, 255, 0.26);
-    --font-main: 'Outfit', 'Inter', Arial, sans-serif;
-}
-
-body {
-    font-family: var(--font-main);
-}
+/* Las variables de marca viven en index.css (única fuente de verdad). */
 
 .hero {
     display: flex;
@@ -151,6 +141,8 @@ body {
     border-radius: 999px;
     border: 1.5px solid var(--btn-border-glass);
     cursor: pointer;
+    font: inherit;
+    color: inherit;
     backdrop-filter: saturate(150%) blur(8px);
     -webkit-backdrop-filter: saturate(150%) blur(8px);
     background: rgba(255, 255, 255, 0.03);

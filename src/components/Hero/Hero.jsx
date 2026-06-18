@@ -19,7 +19,7 @@ const Hero = () => {
         <p>Construyo aplicaciones web modernas con React/Next.js y Node.js, integrando IA (OpenAI, Claude) para automatización inteligente. Especializado en APIs, soluciones full-stack escalables y optimización de rendimiento con foco en UX y resultados de negocio.</p>
         <div className="hero-action">
             <div className="hero-connect"><AnchorLink className='anchor-link' offset={100} href='#contact'>Contactar</AnchorLink></div>
-            <div className="hero-resumen" onClick={handleDownloadCV}>Mi CV</div>
+            <button type="button" className="hero-resumen" onClick={handleDownloadCV}>Mi CV</button>
         </div>
     </div>
   )

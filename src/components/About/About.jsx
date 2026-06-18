@@ -62,7 +62,7 @@ const About = () => {
             <div className="about-sections">
                 <div className="about-left">
                     <ProfileCard
-                        name="Julian D. Gonzalez"
+                        name="Julián Merchán"
                         title="Full-Stack & IA Developer"
                         handle="Julian-Enable"
                         status="Disponible para proyectos"
@@ -96,7 +96,7 @@ const About = () => {
                 </div>
                 <hr />
                 <div className="about-archivement">
-                    <h1>5+</h1>
+                    <h1>8+</h1>
                     <p>PROYECTOS COMPLETADOS</p>
                 </div>
                 <hr />
