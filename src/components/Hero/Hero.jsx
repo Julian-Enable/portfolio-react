@@ -1,5 +1,5 @@
 import './Hero.css'
-import profile_img from '../../assets/profile_img.svg'
+import profile_img from '../../assets/optimized/profile_img.png'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Hero = () => {
@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <div id='home' className='hero'>
-        <img src={profile_img} alt="Foto de perfil" loading="eager" fetchPriority="high" />
+        <img src={profile_img} alt="Foto de perfil" loading="eager" decoding="async" />
         <h1>Soy <span>Julián Merchán,</span> Desarrollador Full-Stack & IA.</h1>
         <p>Construyo aplicaciones web modernas con React/Next.js y Node.js, integrando IA (OpenAI, Claude) para automatización inteligente. Especializado en APIs, soluciones full-stack escalables y optimización de rendimiento con foco en UX y resultados de negocio.</p>
         <div className="hero-action">

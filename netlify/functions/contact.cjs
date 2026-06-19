@@ -1,4 +1,5 @@
 const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
+const MAX_BODY_LENGTH = 5000;
 
 const jsonResponse = (statusCode, payload) => ({
   statusCode,
@@ -9,10 +10,15 @@ const jsonResponse = (statusCode, payload) => ({
 });
 
 const isNonEmpty = value => typeof value === 'string' && value.trim().length > 0;
+const isValidEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return jsonResponse(405, { success: false, message: 'Método no permitido.' });
+  }
+
+  if ((event.body || '').length > MAX_BODY_LENGTH) {
+    return jsonResponse(413, { success: false, message: 'Mensaje demasiado largo.' });
   }
 
   const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
@@ -35,6 +41,10 @@ exports.handler = async (event) => {
 
   if (!isNonEmpty(name) || !isNonEmpty(email) || !isNonEmpty(message)) {
     return jsonResponse(400, { success: false, message: 'Todos los campos son obligatorios.' });
+  }
+
+  if (name.length > 80 || email.length > 120 || message.length > 2000 || !isValidEmail(email)) {
+    return jsonResponse(400, { success: false, message: 'Revisa los datos del formulario.' });
   }
 
   const web3Payload = {

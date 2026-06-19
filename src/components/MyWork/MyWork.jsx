@@ -138,6 +138,7 @@ const MyWork = () => {
                                             src={work.w_img}
                                             alt={work.w_name}
                                             loading="lazy"
+                                            decoding="async"
                                         />
                                     </div>
                                 </Card>

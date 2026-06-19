@@ -1,11 +1,11 @@
-import project1_img from '../assets/project_1.svg'
-import project2_img from '../assets/project_2.svg'
-import project3_img from '../assets/project_3.svg'
-import project4_img from '../assets/project_4.svg'
-import project5_img from '../assets/project_5.svg'
-import project6_img from '../assets/project_6.svg'
-import project7_img from '../assets/project_7.svg'
-import project8_img from '../assets/project_8.svg'
+import project1_img from '../assets/optimized/project_1.jpg'
+import project2_img from '../assets/optimized/project_2.jpg'
+import project3_img from '../assets/optimized/project_3.jpg'
+import project4_img from '../assets/optimized/project_4.jpg'
+import project5_img from '../assets/optimized/project_5.jpg'
+import project6_img from '../assets/optimized/project_6.jpg'
+import project7_img from '../assets/optimized/project_7.jpg'
+import project8_img from '../assets/optimized/project_8.jpg'
 
 const mywork_data = [
     {

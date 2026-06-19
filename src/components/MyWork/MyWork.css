@@ -115,19 +115,22 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 32px;
-    border-radius: 50px;
-    background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 102.06%);
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    background: var(--brand-grad);
+    background-size: 200% auto;
     color: white;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-weight: var(--btn-font-weight);
+    font-size: var(--btn-font-size);
+    box-shadow: var(--btn-shadow);
+    transition: var(--btn-transition);
 }
 
 .description-content .project-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(218, 124, 37, 0.4);
+    transform: translateY(-2px);
+    background-position: right center;
+    box-shadow: var(--btn-shadow-hover);
 }
 
 /* Card Swap Wrapper - Lado derecho, parcialmente fuera */
@@ -167,18 +170,20 @@
 .mywork-showmore {
     display: flex;
     gap: 15px;
-    border-radius: 50px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    font-size: 22px;
-    padding: 22px 60px;
-    font-weight: 500;
+    border-radius: var(--btn-radius);
+    border: 1.5px solid var(--btn-border-glass);
+    font-size: var(--btn-font-size);
+    padding: var(--btn-padding);
+    font-weight: var(--btn-font-weight);
     margin-bottom: 80px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--btn-transition);
     z-index: 10;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.03);
     position: relative;
     overflow: hidden;
+    backdrop-filter: saturate(150%) blur(8px);
+    -webkit-backdrop-filter: saturate(150%) blur(8px);
 }
 
 .mywork-showmore::before {
@@ -188,8 +193,8 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
-    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(180, 21, 255, 0.08);
+    transition: left 0.25s ease;
     z-index: -1;
 }
 
@@ -199,9 +204,9 @@
 
 .mywork-showmore:hover {
     gap: 25px;
-    border-color: rgba(180, 21, 255, 0.5);
+    border-color: rgba(180, 21, 255, 0.8);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(180, 21, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(180, 21, 255, 0.15);
 }
 
 .mywork-showmore img {
@@ -324,8 +329,7 @@
     }
 
     .mywork-showmore {
-        font-size: 18px;
-        padding: 18px 40px;
+        padding: 14px 30px;
     }
 }
 
@@ -374,7 +378,6 @@
     }
 
     .description-content .project-link {
-        padding: 12px 28px;
         font-size: 14px;
     }
 
@@ -393,8 +396,6 @@
     }
 
     .mywork-showmore {
-        font-size: 15px;
-        padding: 14px 32px;
         margin-bottom: 30px;
     }
 }
@@ -456,7 +457,6 @@
     }
 
     .description-content .project-link {
-        padding: 10px 24px;
         font-size: 13px;
         margin: 0 auto;
     }
@@ -481,7 +481,6 @@
 
     .mywork-showmore {
         font-size: 13px;
-        padding: 12px 24px;
         margin-bottom: 20px;
         gap: 8px;
     }

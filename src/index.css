@@ -108,6 +108,11 @@ body {
   --btn-shadow: 0 8px 24px rgba(180, 21, 255, 0.18);
   --btn-shadow-hover: 0 16px 40px rgba(180, 21, 255, 0.26);
   --btn-border-glass: rgba(255, 255, 255, 0.18);
+  --btn-radius: 999px;
+  --btn-padding: 16px 34px;
+  --btn-font-size: 16px;
+  --btn-font-weight: 700;
+  --btn-transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
   --focus-ring: 0 0 0 3px rgba(180, 21, 255, 0.55), 0 0 0 5px rgba(255, 255, 255, 0.25);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);

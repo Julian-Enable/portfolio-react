@@ -203,17 +203,22 @@
 
 @media(max-width: 820px) {
     .navbar-glass {
-        display: none !important;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
+        top: 0;
+        left: auto;
+        right: 0;
+        transform: none;
+        width: auto;
+        max-width: none;
+        border-radius: 0 !important;
+        background: transparent !important;
     }
 
     .navbar {
-        display: none !important;
+        justify-content: flex-end;
+        padding: 0;
     }
 
-    .nav-connect {
+    .navbar>img {
         display: none;
     }
 
@@ -315,26 +320,22 @@
     }
 
     .navbar-glass.shrunk {
-        height: 0 !important;
-        min-height: 0;
+        height: auto !important;
     }
 
     .navbar.shrunk {
         padding: 0;
-        min-height: 0;
     }
 }
 
 @media(max-width: 480px) {
     .navbar-glass {
-        display: none !important;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
+        top: 0;
+        right: 0;
     }
 
     .navbar {
-        display: none !important;
+        padding: 0;
     }
 
     .nav-mob-open {

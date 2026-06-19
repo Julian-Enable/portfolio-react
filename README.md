@@ -9,7 +9,6 @@ Portfolio profesional de desarrollador de software construido con React + Vite.
 - ✅ **Accesibilidad mejorada** - ARIA labels, semantic HTML
 - ✅ **Navegación suave** - Smooth scroll y detección de sección activa
 - ✅ **Formulario de contacto funcional** - Integración con Web3Forms
-- ✅ **Formulario de suscripción** - Newsletter en el footer
 - ✅ **Performance optimizado** - Lazy loading, CSS optimizado
 - ✅ **Sistema de diseño moderno** - Gradientes, glassmorphism, animaciones
 
@@ -53,8 +52,9 @@ src/
 │   ├── Services/        # Servicios ofrecidos
 │   ├── MyWork/          # Portfolio de proyectos
 │   ├── Contact/         # Formulario de contacto
-│   └── Footer/          # Footer con suscripción
-├── assets/              # Imágenes, SVGs y datos
+│   └── Footer/          # Footer con tecnologías y enlaces
+├── assets/              # Imágenes y SVGs
+├── data/                # Datos de servicios y proyectos
 ├── App.jsx              # Componente principal
 └── main.jsx             # Entry point
 ```
@@ -74,8 +74,8 @@ Edita `src/index.css` para cambiar el sistema de colores:
 
 ### Datos del Portfolio
 
-- **Proyectos**: `src/assets/mywork_data.js`
-- **Servicios**: `src/assets/services_data.js`
+- **Proyectos**: `src/data/myworkData.js`
+- **Servicios**: `src/data/servicesData.js`
 
 ## 📧 Configuración de Formularios
 

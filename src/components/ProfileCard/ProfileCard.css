@@ -368,18 +368,16 @@
 
 .pc-contact-btn {
   border: none;
-  border-radius: 10px;
+  border-radius: var(--btn-radius);
   padding: 8px 18px;
   font-size: 12px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #DF8908 0%, #C94BF5 50%, #B415FF 100%);
+  font-weight: var(--btn-font-weight);
+  background: var(--brand-grad);
   background-size: 200% auto;
   color: #ffffff;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(180, 21, 255, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-shadow);
   flex-shrink: 0;
   align-self: center;
   white-space: nowrap;
@@ -408,7 +406,7 @@
 .pc-contact-btn:hover {
   transform: translateY(-2px);
   background-position: right center;
-  box-shadow: 0 6px 20px rgba(180, 21, 255, 0.5);
+  box-shadow: var(--btn-shadow-hover);
 }
 
 .pc-content {

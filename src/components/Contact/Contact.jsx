@@ -119,14 +119,14 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <form onSubmit={onSubmit} className="contact-right" noValidate>
+                <form onSubmit={onSubmit} className="contact-right">
                     <input type="text" name="botcheck" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
                     <label htmlFor="contact-name">Tu nombre</label>
-                    <input id="contact-name" type="text" placeholder='Escribe tu nombre' name='name' autoComplete='name' required />
+                    <input id="contact-name" type="text" placeholder='Escribe tu nombre' name='name' autoComplete='name' maxLength="80" required />
                     <label htmlFor="contact-email">Tu correo</label>
-                    <input id="contact-email" type="email" placeholder='Escribe tu correo' name='email' autoComplete='email' required />
+                    <input id="contact-email" type="email" placeholder='Escribe tu correo' name='email' autoComplete='email' maxLength="120" required />
                     <label htmlFor="contact-message">Escribe tu mensaje</label>
-                    <textarea id="contact-message" name="message" rows="8" placeholder='Escribe tu mensaje' required></textarea>
+                    <textarea id="contact-message" name="message" rows="8" placeholder='Escribe tu mensaje' maxLength="2000" required></textarea>
                     {resultMessage && (
                       <p role="alert" aria-live="polite" style={{ color: isSuccess ? '#4ade80' : '#f87171' }}>
                         {resultMessage}
